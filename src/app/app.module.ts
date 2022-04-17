@@ -10,6 +10,19 @@ import { CreateReclamationComponent } from './reclamation/create-reclamation/cre
 import { UpdateReclamationComponent } from './reclamation/update-reclamation/update-reclamation.component';
 import { AdminReclamationComponent } from './reclamation/admin-reclamation/admin-reclamation.component';
 import { ListReclamationComponent } from './reclamation/list-reclamation/list-reclamation.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatIconModule} from "@angular/material/icon";
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import { CreateMobilierComponent } from './mobilier/create-mobilier/create-mobilier.component';
+import { ListMobilierComponent } from './mobilier/list-mobilier/list-mobilier.component';
+import { UpdateMobilierComponent } from './mobilier/update-mobilier/update-mobilier.component';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -20,11 +33,23 @@ import { ListReclamationComponent } from './reclamation/list-reclamation/list-re
     CreateReclamationComponent,
     UpdateReclamationComponent,
     AdminReclamationComponent,
-    ListReclamationComponent
+    ListReclamationComponent,
+    CreateMobilierComponent,
+    ListMobilierComponent,
+    UpdateMobilierComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    FormsModule,
+    HttpClientModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
