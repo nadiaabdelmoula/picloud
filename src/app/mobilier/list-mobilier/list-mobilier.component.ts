@@ -26,6 +26,8 @@ export class ListMobilierComponent implements OnInit {
     this.service.findAll().subscribe(data => {
       // @ts-ignore
       this.mobiliers = data;
+      // @ts-ignore
+      this.mobiliers.forEach(m => m.imageVideo?.length > 0 ?  m.placeholder = m.imageVideo[0].image: m.placeholder = '/assets/img/property-1.jpg' )
     })
   }
 

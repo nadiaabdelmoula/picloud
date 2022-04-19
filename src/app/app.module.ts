@@ -22,6 +22,10 @@ import { CreateMobilierComponent } from './mobilier/create-mobilier/create-mobil
 import { ListMobilierComponent } from './mobilier/list-mobilier/list-mobilier.component';
 import { UpdateMobilierComponent } from './mobilier/update-mobilier/update-mobilier.component';
 import {MatSelectModule} from '@angular/material/select';
+import { AdminCreateReclamationComponent } from './reclamation/admin-create-reclamation/admin-create-reclamation.component';
+import { DetailMobilierComponent } from './mobilier/detail-mobilier/detail-mobilier.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
@@ -36,7 +40,9 @@ import {MatSelectModule} from '@angular/material/select';
     ListReclamationComponent,
     CreateMobilierComponent,
     ListMobilierComponent,
-    UpdateMobilierComponent
+    UpdateMobilierComponent,
+    AdminCreateReclamationComponent,
+    DetailMobilierComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     FormsModule,
     HttpClientModule,
-    MatSelectModule
+    MatSelectModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

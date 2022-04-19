@@ -1,1 +1,36 @@
-<p>admin-reclamation works!</p>
+<div class=" container-fluid">
+  <div class="col-12 d-flex justify-content-lg-end">
+
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Titre</th>
+    <th scope="col">Sujet</th>
+    <th scope="col">Date</th>
+    <th scope="col">Actions</th>
+    <th scope="col">votre reponse</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let reclamation of reclamations">
+    <th scope="row">{{reclamation.id}}</th>
+    <td>{{reclamation.titre}}</td>
+    <td>{{reclamation.sujet}}</td>
+    <td>{{reclamation.date | date}}</td>
+    <td>
+
+      <button mat-icon-button style="margin-left: 90px;" class="btn-danger btn" (click)="supprimer(reclamation.id)" >  <mat-icon>delete </mat-icon> </button>
+
+    </td>
+    <td>
+      <button class="btn-primary btn" (click)="openAddDialog(reclamation.id)">  Ajouter une reponse </button>
+      <button class="btn-primary btn" (click)="reclamation.reponse">Consulter votre reponse </button>
+    </td>
+  </tr>
+
+  </tbody>
+</table>

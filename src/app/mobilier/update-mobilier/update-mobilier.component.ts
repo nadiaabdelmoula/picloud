@@ -26,7 +26,7 @@ export class UpdateMobilierComponent implements OnInit {
 
 
   update() {
-    this.service.update(this.mobilier).subscribe(r => this.dialogRef.close())
-  }
 
+  this.service.update(this.mobilier).subscribe(r => this.dialogRef.close())
+}
 }

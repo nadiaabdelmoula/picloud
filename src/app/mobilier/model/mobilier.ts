@@ -1,3 +1,5 @@
+import {ImageVideo} from "../../shared/model/imageVideo";
+
 export interface IMobilier{
   id?: number;
   titre?: string;
@@ -7,6 +9,8 @@ export interface IMobilier{
   prix?: number;
   status?: boolean;
   idAchteur?: number;
+  imageVideo?: ImageVideo[];
+  placeholder?: string;
 
 }
 
@@ -22,7 +26,9 @@ export class Mobilier implements IMobilier {
     public prix?: number,
     public date?: Date,
     public idAchteur?: number,
-    public status?:boolean
+    public status?:boolean,
+    public imageVideo?: ImageVideo[],
+    public placeholder?: string
   ) {
   }
 }

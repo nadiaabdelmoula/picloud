@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {Reclamation} from "../model/reclamation";
+import {MatDialog} from "@angular/material/dialog";
+import {ReclamationService} from "../services/reclamation.service";
+import {CreateReclamationComponent} from "../create-reclamation/create-reclamation.component";
+import {UpdateReclamationComponent} from "../update-reclamation/update-reclamation.component";
+import {AdminCreateReclamationComponent} from "../admin-create-reclamation/admin-create-reclamation.component";
 
 @Component({
   selector: 'app-admin-reclamation',
@@ -7,9 +13,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminReclamationComponent implements OnInit {
 
-  constructor() { }
+  reclamations: Reclamation[] = [];
+  constructor(
+    private dialog: MatDialog,
+    private service: ReclamationService
+  ) { }
 
   ngOnInit(): void {
+    this.service.findAll().subscribe(data => {
+      // @ts-ignore
+      this.reclamations = data;
+    })
+
   }
 
+
+  openAddDialog(id: any) {
+    const dialogRef = this.dialog.open(AdminCreateReclamationComponent, {
+      width: '400px',
+      data: {
+        id
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.ngOnInit();
+    });
+  }
+
+
+  supprimer(id: any) {
+    if(confirm('voulez vous vraiment supprimer ?')){
+      this.service.delete(id).subscribe(r => this.ngOnInit());
+    }
+
+}
+
+  openReponseDialog() {
+
+  }
 }

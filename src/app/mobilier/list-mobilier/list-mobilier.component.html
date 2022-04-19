@@ -57,7 +57,7 @@
       <div class="col-md-4" *ngFor="let mobilier of mobiliers">
         <div class="card-box-a card-shadow">
           <div class="img-box-a">
-            <img src="/assets/img/property-1.jpg" alt="" class="img-a img-fluid">
+            <img [src]="mobilier.placeholder" alt="" class="img-a img-fluid">
           </div>
           <div class="card-overlay">
             <div class="card-overlay-a-content">
@@ -71,6 +71,14 @@
                 <div class="price-box d-flex">
                   <span class="price-a">Prix: {{mobilier.prix}}</span>
                 </div>
+
+                <div class="price-box d-flex">
+                  <a routerLink="/mobilier/{{mobilier.id}}" class="link-a">Click here to view
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </div>
+
+
 
 
 
