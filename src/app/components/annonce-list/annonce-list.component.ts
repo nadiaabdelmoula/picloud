@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Annonce } from '../annonce';
-import { AnnonceService } from '../annonce.service';
+import { Annonce } from '../../model/annonce';
+import { AnnonceService } from '../../service/annonce.service';
 
 @Component({
   selector: 'app-annonce-list',

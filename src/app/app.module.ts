@@ -3,18 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AnnonceListComponent } from './annonce-list/annonce-list.component';
+import { AnnonceListComponent } from './components/annonce-list/annonce-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AnnonceDetailsComponent } from './components/annonce-details/annonce-details.component';
+import { AddAnnonceComponent } from './components/add-annonce/add-annonce.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AnnonceListComponent
+    AnnonceListComponent,
+    AnnonceDetailsComponent,
+    AddAnnonceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
 
   ],
   providers: [],
