@@ -20,7 +20,7 @@ export class AddAnnonceComponent implements OnInit {
     }
   
     save(){
-      this.annonce.nbchambre=2;
+      
       
       this.annonceService.create(this.annonce).subscribe(data => {
         console.log(data);

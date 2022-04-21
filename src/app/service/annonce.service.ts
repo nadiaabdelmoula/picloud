@@ -8,11 +8,12 @@ import { Annonce } from '../model/annonce';
 })
 export class AnnonceService {
 
-  private baseURL = "http://localhost:8088/SpringMVC/api/v1/AfficheAnnonce";
+  private baseURL = "http://localhost:8088/SpringMVC/api/v1/AjoutAnnonce/1";
+  private baseURL2 = "http://localhost:8088/SpringMVC/api/v1/AfficheAnnonce";
 
   constructor(private httpClient: HttpClient) { }
   getAnnoncelist(): Observable<Annonce[]>{
-    return this.httpClient.get<Annonce[]>(`${this.baseURL}`);
+    return this.httpClient.get<Annonce[]>(`${this.baseURL2}`);
   }
 
   create(data: Annonce): Observable<Object> {

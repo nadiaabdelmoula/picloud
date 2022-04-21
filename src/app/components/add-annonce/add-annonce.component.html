@@ -1,6 +1,15 @@
-<br><br><br><br><br><br><br><br><br><br>
-<h3>Create Annonce</h3>>
+<br><br><br><br><br>
+<h3>Create Annonce</h3>
+<br>
 <form (ngSubmit) = "onSubmit()">
+
+    <div class="form-group">
+        <label> Titre</label>
+        <input type="text" class="form-control" id="titre"
+        [(ngModel)]="annonce.titre" name="titre">
+
+    </div>
+
     <div class="form-group">
         <label> Description</label>
         <input type="text" class="form-control" id="description"
@@ -15,13 +24,6 @@
     </div>
 
     <div class="form-group">
-        <label> Chambres</label>
-        <input type="text" class="form-control" id="nbchambre"
-        [(ngModel)]="annonce.nbchambre" name="nbchambre">
-
-    </div>
-
-    <div class="form-group">
         <label> Prix</label>
         <input type="text" class="form-control" id="prix"
         [(ngModel)]="annonce.prix" name="prix">
@@ -29,12 +31,25 @@
     </div>
 
     <div class="form-group">
+        <label> Nombre de Chambres</label>
+        <input type="text" class="form-control" id="nbchambre"
+        [(ngModel)]="annonce.nbchambre" name="nbchambre">
+
+    </div>
+
+    
+
+    <div class="form-group">
         <label> Surface</label>
         <input type="text" class="form-control" id="surface"
         [(ngModel)]="annonce.surface" name="surface">
 
     </div>
+    
 
+    
+
+    
     <button class="btn btn-success" type="submit">Submit</button>
 
  
