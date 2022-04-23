@@ -10,7 +10,8 @@ import { AnnonceService } from '../../service/annonce.service';
 })
 export class AnnonceListComponent implements OnInit {
   annonces: Annonce[];
-
+  p: number = 1;
+  localisation: any;
 
   constructor(private annonceservice: AnnonceService, private router: Router) { }
 
@@ -24,5 +25,20 @@ export class AnnonceListComponent implements OnInit {
       this.annonces = data;
     });
   }
+
+  Search(){
+    if(this.localisation== ""){
+      this.ngOnInit();
+
+    } else {
+      this.annonces=this.annonces.filter(data => {
+        return data.localisation.toLocaleLowerCase().match(this.localisation.toLocaleLowerCase());
+      })
+    }
+  }
+
+ 
+
+
 
 }

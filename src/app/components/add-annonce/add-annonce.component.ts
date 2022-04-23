@@ -21,20 +21,30 @@ export class AddAnnonceComponent implements OnInit {
   
     save(){
       
-      
-      this.annonceService.create(this.annonce).subscribe(data => {
+        this.annonceService.create(this.annonce).subscribe(data => {
         console.log(data);
         this.RedirectToAnnonceList();
       },error => console.log(error));
     }
   
     RedirectToAnnonceList(){
-  this.router.navigate(['/annonces']);
+  this.router.navigate(['/affiche']);
     }
   
     onSubmit(){
       //console.log(this.user);
       this.save();
     }
+    files: File[] = [];
+
+onSelect(event:any) {
+  console.log(event);
+  this.files.push(...event.addedFiles);
+}
+
+onRemove(event:any) {
+  console.log(event);
+  this.files.splice(this.files.indexOf(event), 1);
+}
   
      }

@@ -1,7 +1,6 @@
 import { User } from "./user";
 
-
-export class Annonce {
+export class AnnonceFetch {
     id: number ;
     description: string;
     titre: string;
