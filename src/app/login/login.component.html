@@ -10,7 +10,7 @@
                 <div class="form-group">
                     <label for="Type">Username</label>
                     <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword"
-                        name="username" [(ngModel)]="form.username" required #username="ngModel" />
+                        name="username" [(ngModel)]="user.username" required #username="ngModel" />
                     <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">
                         Username is required!
                     </div>
@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label for="Type">Mot de passe</label>
                     <input type="password" class="form-control form-control-lg form-control-a" placeholder="Keyword"
-                        name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel" />
+                        name="password" [(ngModel)]="user.password" required minlength="6" #password="ngModel" />
                     <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
                         <div *ngIf="password.errors['required']">Password is required</div>
                         <div *ngIf="password.errors['minlength']">

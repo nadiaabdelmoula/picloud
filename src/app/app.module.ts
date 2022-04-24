@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
     RegisterComponent,
     HomeComponent,
     ProfileComponent,
+    BoardAdminComponent,
   ],
   imports: [
     BrowserModule,

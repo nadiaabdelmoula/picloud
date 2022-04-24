@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models/user';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 @Component({
@@ -7,10 +8,11 @@ import { TokenStorageService } from '../_services/token-storage.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: any = {
+  user = new User();
+ /* form: any = {
     username: null,
     password: null
-  };
+  };*/
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
@@ -23,8 +25,8 @@ export class LoginComponent implements OnInit {
     }
   }
   onSubmit(): void {
-    const { username, password } = this.form;
-    this.authService.login(username, password).subscribe({
+   // const { username, password } = this.form;
+    this.authService.login(this.user.username, this.user.password).subscribe({
       next: data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);

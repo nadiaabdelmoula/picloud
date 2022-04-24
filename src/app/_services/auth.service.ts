@@ -10,6 +10,9 @@ const httpOptions = {
 })
 export class AuthService {
   constructor(private http: HttpClient) { }
+
+  token : string;
+  public roles:string[];
   login(username: string, password: string): Observable<any> {
     return this.http.post(AUTH_API + 'signin', {
       username,
@@ -24,4 +27,6 @@ export class AuthService {
       telephone
     }, httpOptions);
   }
+
+  
 }

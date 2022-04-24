@@ -23,7 +23,7 @@
               <input type="text" class="form-control form-control-lg form-control-a" 
               placeholder="Keyword"
               name="username"
-              [(ngModel)]="form.username"
+              [(ngModel)]="user.username"
               required
               minlength="3"
               maxlength="20"
@@ -48,7 +48,7 @@
               <input type="email" class="form-control form-control-lg form-control-a" 
               placeholder="Keyword"
               name="email"
-          [(ngModel)]="form.email"
+          [(ngModel)]="user.email"
           required
           email
           #email="ngModel"
@@ -68,7 +68,7 @@
               <input type="phone" class="form-control form-control-lg form-control-a" 
               placeholder="Keyword"
               name="telephone"
-          [(ngModel)]="form.telephone"
+          [(ngModel)]="user.telephone"
           required
           minlength="8"
           maxlength="8"
@@ -93,7 +93,7 @@
               <input type="password" class="form-control form-control-lg form-control-a" 
               placeholder="Keyword"
                         name="password"
-                    [(ngModel)]="form.password"
+                    [(ngModel)]="user.password"
                     required
                     minlength="6"
                     #password="ngModel"
