@@ -1,3 +1,7 @@
+
+
+
+
 export interface IReclamation{
   id?: number;
   titre?: string;
@@ -5,6 +9,7 @@ export interface IReclamation{
 
   date?: Date;
   reponse?: string;
+
 }
 
 export class Reclamation implements IReclamation{

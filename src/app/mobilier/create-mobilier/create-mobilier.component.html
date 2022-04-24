@@ -31,7 +31,7 @@
     <span matPrefix>DT&nbsp;</span>
     <span matSuffix>.00</span>
   </mat-form-field>
-  <input type="file" #img accept="image/*" multiple hidden (change)="imageLoad($event)" [(ngModel)]="image">
+  <input type="file" #img accept="image/*" multiple hidden (change)="imageLoad($event)" >
   <button class="btn-primary btn " (click)="img.click()" >upload image</button>
 
 

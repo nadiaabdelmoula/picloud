@@ -17,6 +17,8 @@ import {UpdateMobilierComponent} from "../update-mobilier/update-mobilier.compon
 export class ListMobilierComponent implements OnInit {
 
   mobiliers: Mobilier[] = [];
+  // @ts-ignore
+  user = JSON.parse(localStorage.getItem('user'));
   constructor(
     private dialog: MatDialog,
     private service: MobilierService

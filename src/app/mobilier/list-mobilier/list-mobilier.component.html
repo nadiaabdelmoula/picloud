@@ -56,8 +56,8 @@
 
       <div class="col-md-4" *ngFor="let mobilier of mobiliers">
         <div class="card-box-a card-shadow">
-          <div class="img-box-a">
-            <img [src]="mobilier.placeholder" alt="" class="img-a img-fluid">
+          <div class="img-box-a" style="height: 400px; width: 300px" >
+            <img [src]="mobilier.placeholder"  height="400" width="300" alt="" >
           </div>
           <div class="card-overlay">
             <div class="card-overlay-a-content">
@@ -77,18 +77,13 @@
                     <span class="ion-ios-arrow-forward"></span>
                   </a>
                 </div>
-
-
-
-
-
-                <a>
+                <a *ngIf="mobilier.vendeur?.id === user.id">
                   <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="supprimer(mobilier.id)" >
                     <mat-icon>delete</mat-icon>
                   </button>
                 </a>
 
-                <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="openUpdateDialog(mobilier.id)" >
+                <button *ngIf="mobilier.vendeur?.id === user.id" mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="openUpdateDialog(mobilier.id)" >
                   <mat-icon>edit </mat-icon>
 
                 </button>

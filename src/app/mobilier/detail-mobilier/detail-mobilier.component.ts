@@ -24,6 +24,8 @@ export class DetailMobilierComponent implements OnInit {
 
   // @ts-ignore
   @ViewChild('carousel', {static : true}) carousel: NgbCarousel;
+  // @ts-ignore
+  user = JSON.parse(localStorage.getItem('user'));
 
   constructor(
     private service: MobilierService,
@@ -58,5 +60,12 @@ export class DetailMobilierComponent implements OnInit {
   }
 
 
+  acheter() {
+    if(confirm('voulez vous vraiment l\'acheter ? ')){
+      this.mobilier.achteur = this.user;
+      this.mobilier.status = false;
+      this.service.update(this.mobilier).subscribe(r => this.ngOnInit());
+    }
 
+  }
 }

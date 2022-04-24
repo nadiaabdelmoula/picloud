@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {MobilierService} from "../services/mobilier.service";
 import {Mobilier} from "../model/mobilier";
+import {ImageVideo} from "../../shared/model/imageVideo";
 
 @Component({
   selector: 'app-update-mobilier',
@@ -11,6 +12,8 @@ import {Mobilier} from "../model/mobilier";
 export class UpdateMobilierComponent implements OnInit {
 
   mobilier: Mobilier = new Mobilier();
+  image: string = '';
+  imageSrc : ImageVideo[] = [];
 
   constructor(
     private service: MobilierService,
@@ -26,7 +29,37 @@ export class UpdateMobilierComponent implements OnInit {
 
 
   update() {
-
+    this.mobilier.imageVideo = this.imageSrc;
   this.service.update(this.mobilier).subscribe(r => this.dialogRef.close())
 }
+
+  imageLoad(e: any) {
+    var reader ;
+
+    for (let i = 0; i < e.target.files.length; i++) {
+
+
+      var file = e.dataTransfer ? e.dataTransfer.files[i] : e.target.files[i];
+      var pattern = /image-*/;
+      if (!file.type.match(pattern)) {
+        alert('invalid format');
+        return;
+      }
+      reader =  new FileReader();
+      reader.onload = e => {
+        let reader = e.target;
+        this.imageSrc[i] = new ImageVideo();
+        // @ts-ignore
+        this.imageSrc[i].image = reader.result;
+        console.log(this.imageSrc)
+      };
+      reader.readAsDataURL(file);
+    }
+
+
+  }
+  _handleReaderLoaded(e: any) {
+
+    console.log(this.imageSrc)
+  }
 }

@@ -11,8 +11,9 @@
     <th scope="col">Titre</th>
     <th scope="col">Sujet</th>
     <th scope="col">Date</th>
-    <th scope="col">Actions</th>
-    <th scope="col">votre reponse</th>
+
+    <th scope="col">Ajouter votre reponse</th>
+    <th scope="col">Consulter votre reponse</th>
   </tr>
   </thead>
   <tbody>
@@ -21,15 +22,18 @@
     <td>{{reclamation.titre}}</td>
     <td>{{reclamation.sujet}}</td>
     <td>{{reclamation.date | date}}</td>
+
     <td>
 
-      <button mat-icon-button style="margin-left: 90px;" class="btn-danger btn" (click)="supprimer(reclamation.id)" >  <mat-icon>delete </mat-icon> </button>
+      <div class="example-button-container">
+        <button mat-mini-fab color="primary" aria-label="Example icon button with a plus one icon" (click)="openAddDialog(reclamation.id)">
+          <mat-icon>plus_one</mat-icon>
+        </button>
+      </div>
 
     </td>
-    <td>
-      <button class="btn-primary btn" (click)="openAddDialog(reclamation.id)">  Ajouter une reponse </button>
-      <button class="btn-primary btn" (click)="reclamation.reponse">Consulter votre reponse </button>
-    </td>
+
+    <td>{{reclamation.reponse}}</td>
   </tr>
 
   </tbody>

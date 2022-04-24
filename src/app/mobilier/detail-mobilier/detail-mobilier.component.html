@@ -45,6 +45,59 @@
           </ng-template>
         </ngb-carousel>
 
+
+
+        <div class="property-summary">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="title-box-d section-t4">
+                <h3 class="title-d">Detail de mobilier</h3>
+              </div>
+            </div>
+          </div>
+          <div class="summary-list">
+            <ul class="list">
+              <li class="d-flex justify-content-between">
+                <strong>Titre:</strong>
+                <span>{{mobilier.titre}}</span>
+              </li>
+              <li class="d-flex justify-content-between">
+                <strong>Description:</strong>
+                <span>{{mobilier.description}}</span>
+              </li>
+              <li class="d-flex justify-content-between">
+                <strong>Prix:</strong>
+                <span>{{mobilier.prix}}</span>
+              </li>
+              <li class="d-flex justify-content-between">
+                <strong>Date:</strong>
+                <span>{{mobilier.date | date}}</span>
+              </li>
+              <li class="d-flex justify-content-between">
+                <strong>Etat:</strong>
+                <span>{{mobilier.etatMobilier}}
+
+                      </span>
+              </li>
+              <li class="d-flex justify-content-between">
+                <strong>Status:</strong>
+                <span>{{mobilier.status}}</span>
+              </li>
+
+
+            </ul>
+          </div>
+        </div>
+
+
+
+
+        <button *ngIf="mobilier.vendeur?.id !== user.id" class="{{mobilier.status ? 'btn-primary' : 'btn-danger'}} btn" [disabled]="!mobilier.status" (click)="acheter()" > {{mobilier.status ? 'Acheter' : 'Vendu' }} </button>
+
+
+
+
+
       </div>
       <div class="col-md-10 offset-md-1">
         <ul class="nav nav-pills-a nav-pills mb-3 section-t3" id="pills-tab" role="tablist">

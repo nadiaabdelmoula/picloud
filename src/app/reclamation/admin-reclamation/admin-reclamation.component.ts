@@ -44,13 +44,21 @@ export class AdminReclamationComponent implements OnInit {
 
 
   supprimer(id: any) {
+
+
     if(confirm('voulez vous vraiment supprimer ?')){
       this.service.delete(id).subscribe(r => this.ngOnInit());
     }
 
 }
 
-  openReponseDialog() {
+  openReponseDialog(id: any) {
+    const dialogRef = this.dialog.open(AdminCreateReclamationComponent, {
+      width: '400px',
+      data: {
+        id
+      }
+    });
 
   }
 }
