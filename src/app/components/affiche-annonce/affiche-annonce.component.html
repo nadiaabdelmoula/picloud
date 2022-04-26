@@ -30,6 +30,7 @@
     <tr>
         <th>Id</th>
         <th>Titre</th>
+        <th>Type d'annonce</th>
         <th>Description</th>
         <th>Localisation</th>
         <th>Prix</th>
@@ -44,6 +45,7 @@
     <tr *ngFor = "let annonce of annonces" >
     <td>{{ annonce.id }}</td>  
     <td>{{ annonce.titre }}</td>
+    <td>{{ annonce.typeAnnonce }}</td>
     <td>{{ annonce.description }}</td>
     <td>{{ annonce.localisation }}</td>
     <td>{{ annonce.prix }}</td>

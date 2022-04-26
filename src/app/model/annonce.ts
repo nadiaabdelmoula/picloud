@@ -5,13 +5,11 @@ export class Annonce {
     id: number ;
     description: string;
     titre: string;
-    disponibilité: boolean;
+    disponibilite: boolean;
     localisation: string;
     nbchambre: number;
     prix: number;
     surface: number;
-    typeannonce: string
-    latitude: number;
-    longitude:number;
-    user: User
+    typeAnnonce: string;
+    user: User;
 }

@@ -50,7 +50,7 @@
        
         
        
-        <div class="col-md-4" *ngFor = "let annonce of annonces | paginate: { itemsPerPage: 3, currentPage: p }">
+        <div class="col-md-4" *ngFor = "let annonce of annonces | paginate: { itemsPerPage: 6, currentPage: p }">
           <div class="card-box-a card-shadow">
             <div class="img-box-a">
               <img src="/assets/img/property-10.jpg" alt="" class="img-a img-fluid">
@@ -73,7 +73,7 @@
                   <div class="price-box d-flex">
                     <span class="price-a">Prix |  {{ annonce.prix }} DT </span>
                   </div>
-                  <a href='annonces/:id' class="link-a">Click here to view
+                  <a  (click)="detailAnnonce(annonce.id)" class="link-a">Click here to view
                     <span class="ion-ios-arrow-forward"></span>
                   </a>
                 </div>

@@ -27,18 +27,21 @@ export class AnnonceListComponent implements OnInit {
   }
 
   Search(){
-    if(this.localisation== ""){
+    if(this.localisation == ""){
       this.ngOnInit();
 
     } else {
-      this.annonces=this.annonces.filter(data => {
+      this.annonces = this.annonces.filter(data => {
         return data.localisation.toLocaleLowerCase().match(this.localisation.toLocaleLowerCase());
       })
     }
   }
 
- 
+  
 
+  detailAnnonce(id:any){
+    this.router.navigate(['/annonces',id]);
 
+  }
 
 }
