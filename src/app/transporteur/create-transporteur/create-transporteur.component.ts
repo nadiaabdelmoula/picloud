@@ -2,6 +2,7 @@ import {Component, NgModule, OnInit} from '@angular/core';
 import {Transporteur} from "../module/transporteur";
 import {TransporteurService} from "../services/transporteur.service";
 import {Router} from "@angular/router";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-create-transporteur',
@@ -15,7 +16,7 @@ export class CreateTransporteurComponent implements OnInit {
   transporteur!:Transporteur;
   closeResult!: string;
 
-  constructor(private transporteurservice:TransporteurService, private router: Router) {}
+  constructor(private transporteurservice:TransporteurService, private router: Router,  private toast: NgToastService) {}
 
   ngOnInit(): void {
     this.getAllTransporteur()
@@ -37,6 +38,7 @@ export class CreateTransporteurComponent implements OnInit {
     this.transporteurservice.addtransporteur(t).subscribe(()=>{
       this.getAllTransporteur();
       this.form=false;
+      this.toast.success({detail:"SUCCESS",summary:'transporteur est ajouté',duration:5000});
       this.router.navigate(['/affiche']);
     })
 

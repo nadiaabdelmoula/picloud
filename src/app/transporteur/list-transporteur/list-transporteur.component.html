@@ -1,5 +1,5 @@
 <!--/ Intro Single star /-->
-<section class="intro-single">
+<section class="intro-single" xmlns="http://www.w3.org/1999/html">
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-lg-8">
@@ -13,8 +13,12 @@
 </section>
 
 
+<div class="col-lg-10">
+  <button class="btn btn-sm btn-neutral" (click)='triASC()'>Trie Up</button>
+  <button class="btn btn-sm btn-neutral" (click)='triDESC()'>Trie Down</button>
+  <input class="form-control" placeholder="Search" type="text" [(ngModel)]="SearchVal" (keyup)="Search()">
 
-<section class="property-grid grid">
+</div>
 
   <div class="container">
     <div class="row">
@@ -37,35 +41,56 @@
         <td>{{t.num}}</td>
         <td>{{t.etat}}</td>
 
-          <button type="button" class="btn btn-outline-danger"
-                  (click)="deletetranporteur(t.idTransporteur)">delete</button>
-        <form>
+
+        <td><button type="button" class="btn btn-outline-primary"
+                    (click)="open(mymodal)">edit</button>
+          <ng-template #mymodal let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Edit</h4>
+              <button type="button" class="close" aria-label="Close"
+                      (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true" (click)="cancel()">×</span>
+
+              </button>
+
+              <form>
           <div class="modal-body">
 
             <div class="row" class="col-md-5">
               <label>Nom</label>
               <input type="text" placeholder="Votre nom" data-rule="minlen:4" data-msg="Please enter at least 4 chars"
-                     [(ngModel)]="t.nom" [ngModelOptions]="{standalone:true}">
+                     [(ngModel)]="t.nom" [ngModelOptions]="{standalone:true}"/>
             </div>
             <div class="row" class="col-md-5">
             <label>Prenom</label>
             <input type="text" placeholder="Votre prenom" data-rule="minlen:4" data-msg="Please enter at least 4 chars"
-                   [(ngModel)]="t.prenom" [ngModelOptions]="{standalone:true}">
+                   [(ngModel)]="t.prenom" [ngModelOptions]="{standalone:true}"/>
           </div>
             <div class="row" class="col-md-5">
               <label>Cin</label>
               <input type="text" placeholder="Votre cin" data-rule="minlen:4" data-msg="Please enter at least 4 chars"
-                     [(ngModel)]="t.cin" [ngModelOptions]="{standalone:true}">
+                     [(ngModel)]="t.cin" [ngModelOptions]="{standalone:true}"/>
             </div>
             <div class="row" class="col-md-5">
               <label>Num</label>
               <input type="number" placeholder="Votre num" data-rule="minlen:4" data-msg="Please enter at least 4 chars"
-                     [(ngModel)]="t.num" [ngModelOptions]="{standalone:true}">
+                     [(ngModel)]="t.num" [ngModelOptions]="{standalone:true}"/>
             </div>
           </div>
+          <div class="modal-footer">
 
+            <button type="button" class="btn btn-info"
+                    (click)="modal.close('Save click')" (click)="cancel()">Cancel</button>
+            <button class="btn btn-success"(click)="updatetransporteur(t)" (click)="modal.close('Save click')">Validate</button>
+
+          </div>
 
         </form>
+            </div>
+          </ng-template>
+          <button type="button" class="btn btn-outline-danger"
+                  (click)="deletetranporteur(t.idTransporteur)">delete</button>
+        </td>
       </tr>
       </tbody>
     </table>
@@ -73,3 +98,5 @@
 </div>
     </div>
   </div>
+
+

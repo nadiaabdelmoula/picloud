@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Transporteur} from "../module/transporteur";
+import {Observable} from "rxjs";
 
 
 @Injectable({
@@ -26,6 +27,14 @@ constructor(private http: HttpClient) {}
 public updatetransporteur(transporteur:Transporteur){
   return this.http.put(this.api_url + '/modify-transporteur',transporteur)
 }
-
+  SearchTransporteurByName(name: string): Observable<Transporteur[]> {
+    return this.http.get<Transporteur[]>(this.api_url + '/retrieve-transporteurByNom/' + name);
+  }
+  TriTransporteurASC(): Observable<Transporteur[]>{
+    return this.http.get<Transporteur[]>(this.api_url + '/retrieve-transporteurASC');
+  }
+  TriTransporteurDESC(): Observable<Transporteur[]>{
+    return this.http.get<Transporteur[]>(this.api_url + '/retrieve-transporteurDESC');
+  }
 
 }

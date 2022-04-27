@@ -16,7 +16,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ListTransporteurComponent } from './transporteur/list-transporteur/list-transporteur.component';
 import { UpdateTransporteurComponent } from './transporteur/update-transporteur/update-transporteur.component';
-
+import { NgbModal, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgToastModule } from 'ng-angular-popup'
 
 
 
@@ -42,6 +43,9 @@ import { UpdateTransporteurComponent } from './transporteur/update-transporteur/
     MatIconModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    NgbModule,
+    NgbModalModule,
+    NgToastModule
 
   ],
   providers: [],
