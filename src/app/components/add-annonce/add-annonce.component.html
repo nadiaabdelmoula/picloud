@@ -21,7 +21,7 @@
           <label> Type d'annonce </label>
           <select class="custom-select" [(ngModel)]="annonce.typeAnnonce"[ngModelOptions]="{standalone:true}">
             <option value="Achat">Achat</option>
-            <option value="Localisation"> Location</option>
+            <option value="Location">Location</option>
           </select>
      
     </section>
@@ -105,7 +105,12 @@
     
   </div>
   <!--end upload image !!!! -->
-    <button class="btn btn-success" type="submit">Submit</button>
+    
+    <div class="modal-footer" >  
+      <button class="btn btn-success" type="submit">Submit</button>
+    </div>  
+
+    
  
 
 </form>
