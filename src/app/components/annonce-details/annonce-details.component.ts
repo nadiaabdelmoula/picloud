@@ -14,6 +14,7 @@ export class AnnonceDetailsComponent implements OnInit {
   constructor(public route:ActivatedRoute, public router: Router,public annonceservice: AnnonceService) { }
   val:any;
   annonce:AnnonceFetch;
+  annonces: Annonce[];
 
   ngOnInit(){
     let sub=this.route.params.subscribe(params =>{
@@ -24,6 +25,14 @@ export class AnnonceDetailsComponent implements OnInit {
       this.annonce = data;}
       )
 
+      this.AnnonceSimilaires();
+
     
+  }
+
+  AnnonceSimilaires(){
+    this.annonceservice.GetAnnonceSimilaires(this.val).subscribe(data => {
+      this.annonces = data;}
+      )
   }
 }

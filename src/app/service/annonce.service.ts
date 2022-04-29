@@ -19,12 +19,10 @@ export class AnnonceService {
   private baseURL1 = "http://localhost:8088/SpringMVC/api/v1/AfficheAnnonce";
   private baseURL3 = "http://localhost:8088/SpringMVC/api/v1/deleteAnnonce";
   private baseURL4 = "http://localhost:8088/SpringMVC/api/v1/ModifierAnnonce";
+  private baseURL5 = "http://localhost:8088/SpringMVC/api/v1/AS";
 
   constructor(private httpClient: HttpClient) { }
-  getAnnoncelist(){
-    return this.httpClient.get<Annonce[]>(`${this.baseURL2}`);
-  }
-
+ 
   create(data: Annonce): Observable<Object> {
     return this.httpClient.post(`${this.baseURL}`, data);
 
@@ -61,6 +59,21 @@ export class AnnonceService {
     // return user 
     return this.httpClient.get<Annonce>(url,this.httpOptions);
   }
+
+  
+  getAnnoncelist(){
+    return this.httpClient.get<Annonce[]>(`${this.baseURL2}`);
+  }
+
+
+  GetAnnonceSimilaires(id : number) {
+    // recuperation du json de la fonction (back)
+    const url= `${this.baseURL5}/${id}`;
+    // return user 
+    return this.httpClient.get<Annonce[]>(url,this.httpOptions);
+  }
+
+
 }
 
 

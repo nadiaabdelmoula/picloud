@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UploadImagesComponent } from './upload-images.component';
-
 describe('UploadImagesComponent', () => {
   let component: UploadImagesComponent;
   let fixture: ComponentFixture<UploadImagesComponent>;
