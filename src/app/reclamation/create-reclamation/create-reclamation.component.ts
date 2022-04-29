@@ -20,6 +20,8 @@ export class CreateReclamationComponent implements OnInit {
   }
 
   add() {
+    // @ts-ignore
+    this.reclamation.user = JSON.parse(localStorage.getItem('user'));
     this.service.save(this.reclamation).subscribe(data => this.dialogRef.close())
   }
 }

@@ -5,6 +5,7 @@ import {ListReclamationComponent} from "./reclamation/list-reclamation/list-recl
 import {ListMobilierComponent} from "./mobilier/list-mobilier/list-mobilier.component";
 import {AdminReclamationComponent} from "./reclamation/admin-reclamation/admin-reclamation.component";
 import {DetailMobilierComponent} from "./mobilier/detail-mobilier/detail-mobilier.component";
+import {StatMobilierComponent} from "./mobilier/stat-mobilier/stat-mobilier.component";
 
 const routes: Routes = [
   {
@@ -22,6 +23,9 @@ const routes: Routes = [
   }, {
   path: 'mobilier/:idm',
     component: DetailMobilierComponent
+  }, {
+  path: "stat-mobilier",
+    component: StatMobilierComponent
   }
 ];
 

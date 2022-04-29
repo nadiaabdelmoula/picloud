@@ -13,6 +13,9 @@ import {UpdateReclamationComponent} from "../update-reclamation/update-reclamati
 export class ListReclamationComponent implements OnInit {
 
   reclamations: Reclamation[] = [];
+  // @ts-ignore
+  user = JSON.parse(localStorage.getItem('user'));
+
   constructor(
     private dialog: MatDialog,
     private service: ReclamationService

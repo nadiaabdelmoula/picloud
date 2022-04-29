@@ -105,9 +105,14 @@
                     <span>{{mobilier.etatMobilier}}</span>
                   </li>
 
-                  <li>
-                    <h4 class="card-info-title">Status</h4>
-                    <span>{{mobilier.status}}</span>
+                  <li *ngIf="mobilier.status===false ">
+                    <h4  class="card-info-title">Status</h4>
+                    <span>vendu</span>
+                  </li>
+
+                  <li *ngIf="mobilier.status===true">
+                    <h4  class="card-info-title">Status</h4>
+                    <span>disponible</span>
                   </li>
 
 

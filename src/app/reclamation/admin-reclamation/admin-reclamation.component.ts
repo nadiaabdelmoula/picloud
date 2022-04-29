@@ -14,6 +14,8 @@ import {AdminCreateReclamationComponent} from "../admin-create-reclamation/admin
 export class AdminReclamationComponent implements OnInit {
 
   reclamations: Reclamation[] = [];
+  // @ts-ignore
+  user = JSON.parse(localStorage.getItem('user'));
   constructor(
     private dialog: MatDialog,
     private service: ReclamationService

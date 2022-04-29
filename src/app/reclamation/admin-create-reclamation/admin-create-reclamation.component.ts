@@ -22,6 +22,8 @@ export class AdminCreateReclamationComponent implements OnInit {
   }
 
   add() {
+    // @ts-ignore
+    this.reclamation.user = JSON.parse(localStorage.getItem('user'));
     this.service.update(this.reclamation).subscribe(data => this.dialogRef.close())
   }
 }

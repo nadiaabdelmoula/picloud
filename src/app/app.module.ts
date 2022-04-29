@@ -25,6 +25,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { AdminCreateReclamationComponent } from './reclamation/admin-create-reclamation/admin-create-reclamation.component';
 import { DetailMobilierComponent } from './mobilier/detail-mobilier/detail-mobilier.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgChartsModule } from 'ng2-charts';
+import { StatMobilierComponent } from './mobilier/stat-mobilier/stat-mobilier.component';
 
 
 
@@ -42,7 +44,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ListMobilierComponent,
     UpdateMobilierComponent,
     AdminCreateReclamationComponent,
-    DetailMobilierComponent
+    DetailMobilierComponent,
+    StatMobilierComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     MatSelectModule,
     NgbModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

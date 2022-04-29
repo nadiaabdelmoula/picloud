@@ -55,8 +55,5 @@ export class CreateMobilierComponent implements OnInit {
 
 
   }
-  _handleReaderLoaded(e: any) {
 
-    console.log(this.imageSrc)
-  }
 }

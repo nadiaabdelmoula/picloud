@@ -64,6 +64,11 @@ export class DetailMobilierComponent implements OnInit {
     if(confirm('voulez vous vraiment l\'acheter ? ')){
       this.mobilier.achteur = this.user;
       this.mobilier.status = false;
+      // @ts-ignore
+      this.mobilier.vendeur?.reclamations = [];
+      // @ts-ignore
+      this.mobilier.vendeur?.reclamationsAdmin = [];
+      this.mobilier.dateVendu = new Date();
       this.service.update(this.mobilier).subscribe(r => this.ngOnInit());
     }
 

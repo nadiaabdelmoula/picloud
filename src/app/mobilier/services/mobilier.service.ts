@@ -28,4 +28,8 @@ export class MobilierService {
   }
 
 
+  findStat() {
+    return this.http.get(this.api_url + '/vendu');
+
+  }
 }
