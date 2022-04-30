@@ -26,7 +26,9 @@ export class CreateMobilierComponent implements OnInit {
   add() {
     this.mobilier.imageVideo = this.imageSrc;
     // @ts-ignore
-    this.mobilier.vendeur = JSON.parse(localStorage.getItem('user'));
+    this.mobilier.vendeur = JSON.parse(localStorage.getItem('auth-user'));
+    // @ts-ignore
+    this.mobilier.vendeur.roles = [];
     this.service.save(this.mobilier).subscribe(data => this.dialogRef.close())
   }
 

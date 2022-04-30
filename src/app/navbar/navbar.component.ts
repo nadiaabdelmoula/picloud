@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../mobilier/model/mobilier";
+import {User} from "../models/user";
 
 @Component({
   selector: 'app-navbar',
@@ -13,22 +13,10 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if(!localStorage.getItem('user')){
-      localStorage.setItem('user', JSON.stringify(new User(1, "Nadia", "Abdelmoula")) ) ;
-    }
-
     // @ts-ignore
-      this.user = JSON.parse( localStorage.getItem('user'));
+    this.user = JSON.parse(localStorage.getItem('auth-user'));
 
   }
 
-  changeUser() {
-    // @ts-ignore
-    if(this.user.id == 1 ) {
-      localStorage.setItem('user', JSON.stringify(new User(2, "Hedi", "Abdelmoula")))
-    }else {
-      localStorage.setItem('user', JSON.stringify(new User(1, "Nadia", "Abdelmoula")) ) ;
-    }
-    location.reload();
-  }
+
 }

@@ -6,6 +6,7 @@ import {CreateMobilierComponent} from "../create-mobilier/create-mobilier.compon
 import {UpdateMobilierComponent} from "../update-mobilier/update-mobilier.component";
 import {ActivatedRoute} from "@angular/router";
 import {NgbCarousel, NgbSlideEvent, NgbSlideEventSource} from "@ng-bootstrap/ng-bootstrap";
+import {User} from "../../models/user";
 
 @Component({
   selector: 'app-detail-mobilier',
@@ -25,7 +26,7 @@ export class DetailMobilierComponent implements OnInit {
   // @ts-ignore
   @ViewChild('carousel', {static : true}) carousel: NgbCarousel;
   // @ts-ignore
-  user = JSON.parse(localStorage.getItem('user'));
+  user = JSON.parse(localStorage.getItem('auth-user'));
 
   constructor(
     private service: MobilierService,
@@ -62,12 +63,13 @@ export class DetailMobilierComponent implements OnInit {
 
   acheter() {
     if(confirm('voulez vous vraiment l\'acheter ? ')){
-      this.mobilier.achteur = this.user;
+      this.mobilier.achteur = new User();
+      this.mobilier.achteur.id = this.user.id;
       this.mobilier.status = false;
       // @ts-ignore
-      this.mobilier.vendeur?.reclamations = [];
-      // @ts-ignore
-      this.mobilier.vendeur?.reclamationsAdmin = [];
+      let id = this.mobilier.vendeur.id;
+      this.mobilier.vendeur = new User();
+      this.mobilier.vendeur.id = id;
       this.mobilier.dateVendu = new Date();
       this.service.update(this.mobilier).subscribe(r => this.ngOnInit());
     }

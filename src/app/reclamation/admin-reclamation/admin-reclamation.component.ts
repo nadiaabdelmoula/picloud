@@ -15,7 +15,7 @@ export class AdminReclamationComponent implements OnInit {
 
   reclamations: Reclamation[] = [];
   // @ts-ignore
-  user = JSON.parse(localStorage.getItem('user'));
+  user = JSON.parse(localStorage.getItem('auth-user'));
   constructor(
     private dialog: MatDialog,
     private service: ReclamationService

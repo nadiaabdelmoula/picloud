@@ -6,6 +6,10 @@ import {ListMobilierComponent} from "./mobilier/list-mobilier/list-mobilier.comp
 import {AdminReclamationComponent} from "./reclamation/admin-reclamation/admin-reclamation.component";
 import {DetailMobilierComponent} from "./mobilier/detail-mobilier/detail-mobilier.component";
 import {StatMobilierComponent} from "./mobilier/stat-mobilier/stat-mobilier.component";
+import {RegisterComponent} from "./register/register.component";
+import {LoginComponent} from "./login/login.component";
+import {ProfileComponent} from "./profile/profile.component";
+import {BoardAdminComponent} from "./board-admin/board-admin.component";
 
 const routes: Routes = [
   {
@@ -26,7 +30,11 @@ const routes: Routes = [
   }, {
   path: "stat-mobilier",
     component: StatMobilierComponent
-  }
+  },  { path: 'register', component: RegisterComponent },
+  { path: 'inscri', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'admin', component: BoardAdminComponent},
+  {path: "", redirectTo: "home", pathMatch: 'full'},
 ];
 
 @NgModule({

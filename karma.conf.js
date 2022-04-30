@@ -26,6 +26,7 @@ module.exports = function (config) {
     },
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/cloudpi'),
+
       subdir: '.',
       reporters: [
         { type: 'html' },

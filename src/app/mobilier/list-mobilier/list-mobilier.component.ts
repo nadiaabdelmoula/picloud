@@ -18,7 +18,7 @@ export class ListMobilierComponent implements OnInit {
 
   mobiliers: Mobilier[] = [];
   // @ts-ignore
-  user = JSON.parse(localStorage.getItem('user'));
+  user = JSON.parse(localStorage.getItem('auth-user'));
   constructor(
     private dialog: MatDialog,
     private service: MobilierService

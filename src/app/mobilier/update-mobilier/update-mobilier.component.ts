@@ -30,6 +30,10 @@ export class UpdateMobilierComponent implements OnInit {
 
   update() {
     this.mobilier.imageVideo = this.imageSrc;
+    // @ts-ignore
+    this.mobilier.vendeur = JSON.parse(localStorage.getItem('auth-user'));
+    // @ts-ignore
+    this.mobilier.vendeur.roles = [];
   this.service.update(this.mobilier).subscribe(r => this.dialogRef.close())
 }
 

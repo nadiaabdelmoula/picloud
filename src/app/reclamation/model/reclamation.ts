@@ -1,4 +1,4 @@
-import {User} from "../../mobilier/model/mobilier";
+import {User} from "../../models/user";
 
 
 export interface IReclamation{

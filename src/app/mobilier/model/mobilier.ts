@@ -1,28 +1,6 @@
 import {ImageVideo} from "../../shared/model/imageVideo";
-import {Reclamation} from "../../reclamation/model/reclamation";
-export interface IUser {
-  id?:number;
-  nom?: string;
-  prenom?: string;
-  mobiliersVendeur?: Mobilier[];
-  mobiliersAchteur?: Mobilier[];
-  reclamations?: Reclamation[];
-  reclamationsAdmin?: Reclamation[];
+import {User} from "../../models/user";
 
-}
-
-export class User implements IUser {
-  constructor(
-    public id?:number,
-  public nom?: string,
-  public prenom?: string,
-  public mobiliersVendeur?: Mobilier[],
-  public mobiliersAchteur?: Mobilier[],
-   public reclamations?: Reclamation[],
-  public reclamationsAdmin?: Reclamation[]
-  ) {
-  }
-}
 export interface IMobilier{
   id?: number;
   titre?: string;

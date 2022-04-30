@@ -20,16 +20,27 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
+<<<<<<< HEAD
   it(`should have as title 'cloudpi'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('cloudpi');
+=======
+  it(`should have as title 'PiDevFrontEnd'`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual('PiDevFrontEnd');
+>>>>>>> user
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
+<<<<<<< HEAD
     expect(compiled.querySelector('.content span')?.textContent).toContain('cloudpi app is running!');
+=======
+    expect(compiled.querySelector('.content span')?.textContent).toContain('PiDevFrontEnd app is running!');
+>>>>>>> user
   });
 });

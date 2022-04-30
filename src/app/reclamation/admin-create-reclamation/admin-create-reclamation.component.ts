@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {Reclamation} from "../model/reclamation";
 import {ReclamationService} from "../services/reclamation.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {User} from "../../models/user";
 
 @Component({
   selector: 'app-admin-create-reclamation',
@@ -23,7 +24,10 @@ export class AdminCreateReclamationComponent implements OnInit {
 
   add() {
     // @ts-ignore
-    this.reclamation.user = JSON.parse(localStorage.getItem('user'));
+    let user =JSON.parse(localStorage.getItem('auth-user'));
+    this.reclamation.user = new User();
+    // @ts-ignore
+    this.reclamation.user.id = user.id;
     this.service.update(this.reclamation).subscribe(data => this.dialogRef.close())
   }
 }
