@@ -1,3 +1,4 @@
+import { ImageVideo } from "./ImageVideo";
 import { User } from "./user";
 
 export class AnnonceFetch {
@@ -11,4 +12,6 @@ export class AnnonceFetch {
     surface: number;
     typeAnnonce: string;
     user: User;
+    imageVideo:ImageVideo[];
+    placeholder:String
 }

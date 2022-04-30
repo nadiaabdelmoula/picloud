@@ -12,6 +12,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AfficheAnnonceComponent } from './components/affiche-annonce/affiche-annonce.component';
 import { UpdateAnnonceComponent } from './components/update-annonce/update-annonce.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { UpdateAnnonceComponent } from './components/update-annonce/update-annon
     HttpClientModule,
     FormsModule,
     Ng2SearchPipeModule,
-    [BrowserModule, NgxPaginationModule]
+    [BrowserModule, NgxPaginationModule,
+    NgbModule
+  ]
 
   ],
   providers: [],

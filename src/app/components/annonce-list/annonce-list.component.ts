@@ -23,6 +23,7 @@ export class AnnonceListComponent implements OnInit {
   private getAnnonce(){
     this.annonceservice.getAnnoncelist().subscribe(data => {
       this.annonces = data;
+      this.annonces.forEach(m => m.imageVideo?.length > 0 ?  m.placeholder = m.imageVideo[0].image: m.placeholder = '/assets/img/property-1.jpg')
     });
   }
 

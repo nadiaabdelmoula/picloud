@@ -52,8 +52,8 @@
        
         <div class="col-md-4" *ngFor = "let annonce of annonces | paginate: { itemsPerPage: 6, currentPage: p }">
           <div class="card-box-a card-shadow">
-            <div class="img-box-a">
-              <img src="/assets/img/property-10.jpg" alt="" class="img-a img-fluid">
+            <div class="img-box-a" >
+              <img [src]="annonce.placeholder" alt="" class="img-a img-fluid" style="height: 400px; width: 300px">
             </div>
             <div class="card-overlay">
               <div class="card-overlay-a-content">

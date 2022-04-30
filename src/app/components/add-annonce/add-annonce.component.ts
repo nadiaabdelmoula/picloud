@@ -5,6 +5,7 @@ import { Annonce } from 'src/app/model/annonce';
 import { AnnonceService } from 'src/app/service/annonce.service';
 import { FileUploadService } from 'src/app/service/file-upload.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { ImageVideo } from 'src/app/model/ImageVideo';
 
 @Component({
   selector: 'app-add-annonce',
@@ -19,6 +20,9 @@ export class AddAnnonceComponent implements OnInit {
 
   previews: string[] = [];
   imageInfos?: Observable<any>;
+ // IMAGEVIDEO
+  image: string = '';
+  imageSrc : ImageVideo[] = [];
   
 
     annonce: Annonce = new Annonce();
@@ -31,12 +35,37 @@ export class AddAnnonceComponent implements OnInit {
     
   
     save(){
-      
+      this.annonce.imageVideo = this.imageSrc;
       this.annonceService.create(this.annonce).subscribe(data => {
         console.log(data);
         this.isSuccessful=true;
       },error => console.log(error))
     }
+    imageLoad(e: any) {
+      var reader ;
+  
+      for (let i = 0; i < e.target.files.length; i++) {
+  
+  
+      var file = e.dataTransfer ? e.dataTransfer.files[i] : e.target.files[i];
+      var pattern = /image-*/;
+      if (!file.type.match(pattern)) {
+        alert('invalid format');
+        return;
+      }
+        reader =  new FileReader();
+        reader.onload = e => {
+          let reader = e.target;
+          this.imageSrc[i] = new ImageVideo();
+          // @ts-ignore
+          this.imageSrc[i].image = reader.result;
+          console.log(this.imageSrc)
+        };
+      reader.readAsDataURL(file);
+        }
+    }
+
+    
   
     RedirectToAnnonceList(){
   this.router.navigate(['/affiche']);
