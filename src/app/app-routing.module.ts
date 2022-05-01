@@ -30,11 +30,17 @@ const routes: Routes = [
   }, {
   path: "stat-mobilier",
     component: StatMobilierComponent
-  },  { path: 'register', component: RegisterComponent },
-  { path: 'inscri', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'admin', component: BoardAdminComponent},
-  {path: "", redirectTo: "home", pathMatch: 'full'},
+  },
+  { path: 'register',
+    component: RegisterComponent },
+  { path: 'inscri',
+    component: LoginComponent },
+  { path: 'profile',
+    component: ProfileComponent },
+  { path: 'admin',
+    component: BoardAdminComponent},
+  {path: "",
+    redirectTo: "home", pathMatch: 'full'},
 ];
 
 @NgModule({
