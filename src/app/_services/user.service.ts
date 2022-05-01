@@ -26,4 +26,10 @@ private baseURL = "http://localhost:8081/SpringMVC/api/v1/users";
   getUserByUsername(username: String):Observable<User>{
     return this.http.get<User>(`${this.baseURL}/${username}`);
   }
+
+  updateUser(id:any, data: any): Observable<any> {
+    return this.http.put(`${this.baseURL}/${id}`, data);
+  }
+
+  
 }

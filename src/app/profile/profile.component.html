@@ -1,22 +1,148 @@
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+
 <div class="container" *ngIf="currentUser; else loggedOut">
-    <header class="jumbotron">
-      
-      <h3>
-        <strong>{{ user.username }}</strong> Profile
-      </h3>
-    </header>
-    <p>
-      <strong>Email</strong>
-      {{ user.email }}
-    </p>
-    <p>
-      <strong>telephone:</strong>
-      {{ user.telephone }}
-    </p>
-    
-   
+         
+
+  <div class="form-check form-switch">
+    <input (click)="ModeDECO()" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+    <label *ngIf="Userstatus == 'connected' " class="form-check-label" for="flexSwitchCheckDefault">Activez le mode hors-ligne</label>
+    <label *ngIf="Userstatus == 'disconnected'" class="form-check-label" for="flexSwitchCheckDefault">DesActivez le mode hors-ligne</label>
   </div>
+     
+       <div class="row">
+        <div class="col-md-12 section-t8">
+          <div class="title-box-d">
+            <h3 class="title-d">Mes informations </h3>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="card">
+              <div class="card-image">
+                
+                <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+              </div>
+              
+              <div class="details">
+                <a >Modifer photo</a>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-7">
+          
+          <div class="agent-title">
+            <div class="title-box-d">
+              <h3  class="title-d">{{user.username}}  <button type="button" style="background-color: #2eca6a; border-color: #2eca6a;" (click)="update(user)" class="btn btn-primary">
+                <i class="fa fa-cog red"  aria-hidden="true"></i>
+              </button> </h3>
+            </div>
+          </div>
+
+          
+          <p class="content-d color-text-a">
+            Sed porttitor lectus nibh. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
+            Vivamus suscipit tortor
+            eget felis porttitor volutpat. Vivamus suscipit tortor eget felis porttitor volutpat.
+          </p>
+          <br><br>
+          <div class="info-agents color-a">
+            
+            
+            <p>
+              <strong>Phone: </strong>
+              <span class="color-text-a"> <span style="color: #2eca6a;"> (+216) </span> {{ user.telephone }} </span>
+            </p>
+
+            <p>
+              <strong>Email: </strong>
+              <span class="color-text-a"> {{user.email}}</span>
+            </p>
+
+            <p>
+              <strong>Annonces : </strong>
+              <span class="color-text-a">Vous avez <strong style="color: #2eca6a;"> {{ CountAnnonce }}   Annonces</strong></span>
+            </p>
+           
+           
+            <p>
+              <strong>Coupons : </strong>
+              <span class="color-text-a">Vous avez <strong style="color: #2eca6a;"> 2 Coupons</strong> prets a etre utilisés</span>
+            </p>
+          </div>  
+          
+        </div>
+       </div>
+
+       <div class="col-md-12 section-t8">
+        <div class="title-box-d">
+          <h3 class="title-d">Mes Annonces ({{ CountAnnonce }}) </h3>
+        </div>
+      </div>
+
+      <div class="row property-grid grid">
+        <!--<div class="col-sm-12">
+          <div class="grid-option">
+            <form>
+              <select class="custom-select">
+                <option selected>All</option>
+                <option value="1">New to Old</option>
+                <option value="2">For Rent</option>
+                <option value="3">For Sale</option>
+              </select>
+            </form>
+          </div>
+        </div>
+      -->
+
+      <div class="col-md-4" *ngFor="let a of ListAnnonce;">
+        <div class="card-box-a card-shadow">
+          <div class="img-box-a">
+            <img style="width: 100%; height: 100%;" src="https://leguearchitecture.com/wp-content/uploads/2020/02/a-etage-1.jpg">
+          </div>
+          <div class="card-overlay">
+            <div class="card-overlay-a-content">
+              <div class="card-header-a">
+                <h2 class="card-title-a">
+                  {{ a.titre}}
+                </h2>
+              </div>
+              <div class="card-body-a">
+                <div class="price-box d-flex">
+                  <span class="price-a"> {{ a.localisation}}</span>
+                </div>
+                <a href="#" class="link-a">Modfier annonce
+                  <span class="ion-ios-arrow-forward"></span>
+                </a>
+              </div>
+              <div class="card-footer-a">
+                <ul class="card-info d-flex justify-content-around">
+                  <li>
+                    <h4 class="card-info-title">Superficie </h4>
+                    <span>{{a.surface}}m
+                      <sup>2</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <h4 class="card-info-title">Prix</h4>
+                    <span>{{a.prix}} DT</span>
+                  </li>
+                  <li>
+                    <h4 class="card-info-title">Chambres</h4>
+                    <span style="padding-left: 30px;">{{a.nbchambre}}</span>
+                  </li>
+                 
+                 
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
   <ng-template #loggedOut>
     Please login.
   </ng-template>

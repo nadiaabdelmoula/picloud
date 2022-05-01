@@ -33,12 +33,12 @@ import { RegisterComponent } from './register/register.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { EditUserComponent } from './popup/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent,
     FooterComponent,
     CreateReclamationComponent,
     UpdateReclamationComponent,
@@ -49,12 +49,13 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
     UpdateMobilierComponent,
     AdminCreateReclamationComponent,
     DetailMobilierComponent,
-    StatMobilierComponent,
+    StatMobilierComponent,    
     LoginComponent,
     RegisterComponent,
     HomeComponent,
     ProfileComponent,
     BoardAdminComponent,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,
