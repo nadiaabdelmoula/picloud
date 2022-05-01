@@ -9,6 +9,7 @@ export interface IReclamation{
   reponse?: string;
   admin?: User;
   user?: User;
+  status?: string;
 
 
 }
@@ -23,7 +24,8 @@ export class Reclamation implements IReclamation{
   public date?: Date,
   public reponse?: string,
     public admin?: User,
-    public user?: User
+    public user?: User,
+    public status?: string
 
 
   ) {

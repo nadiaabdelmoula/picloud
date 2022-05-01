@@ -14,7 +14,7 @@
     <th scope="col">Date</th>
 
     <th scope="col">Actions</th>
-    <th scope="col">Consulter votre reponse</th>
+    <th scope="col">status</th>
   </tr>
 
   </thead>
@@ -38,7 +38,7 @@
       <button *ngIf="reclamation.user?.id === user.id" mat-icon-button style="margin-left: 90px;" class="btn-danger btn" (click)="supprimer(reclamation.id)" >  <mat-icon>delete </mat-icon> </button>
 
     </td>
-    <td>{{reclamation.reponse}}</td>
+    <td>{{reclamation.status}}</td>
   </tr>
   </ng-container>
   </tbody>
