@@ -22,22 +22,20 @@ export class UpdateAnnonceComponent implements OnInit {
 
     });
     console.log("id: "+ this.val);
-   /* this.annonceservice.getUpdateAnnonce(this.val).subscribe(data => {
+   this.annonceservice.getUpdateAnnonce(this.val).subscribe(data => {
       this.annonce = data;}
-      )*/
+      )
 
     
   }
 
 
  update(){
-    /*this.annonceservice.updateAnnonce(this.annonce).subscribe(data => {
+    this.annonceservice.updateAnnonce(this.annonce).subscribe(data => {
 
     });
     this.router.navigate(['affiche']);
     this.getAnnonce();
-    
-    */
 
   }
   

@@ -35,18 +35,18 @@ export class AnnonceService {
   }
 
 
-  /*getUpdateAnnonce(id: number): Observable<Annonce> {
+  getUpdateAnnonce(id: number): Observable<Annonce> {
     const url= `${this.baseURL2}/${id}`;
     return this.httpClient.get<Annonce>(url, this.httpOptions);
-  }*/
+  }
 
 
-  /*updateAnnonce(annonce: AnnonceFetch): Observable<Annonce> {
+  updateAnnonce(annonce: AnnonceFetch): Observable<Annonce> {
     const url = `${this.baseURL4}/${annonce.id}`;
     return this.httpClient.put<Annonce>(url, annonce, this.httpOptions).pipe(
       map( () => annonce)
     );
-  }*/
+  }
 
   deleteAll(): Observable<any> {
     return this.httpClient.delete(this.baseURL);
