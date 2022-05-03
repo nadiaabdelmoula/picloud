@@ -29,16 +29,11 @@ export class AfficheAnnonceComponent implements OnInit {
 
   deleteRow(val: any){
     
-    this.annonceservice.delete(val).subscribe(data => {
-    });
-    this.annonceservice.getAnnoncelist().subscribe((response) => {
-    
-    
-    this.annonces = response;
-    this.router.navigate(['/affiche']);
-    
-  });
-  
+    if(this.annonceservice.delete(val).subscribe(data => {
+      
+   
+    }))
+    window.location.reload();
   
 }
   

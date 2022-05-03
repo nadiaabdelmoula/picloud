@@ -57,7 +57,7 @@ import { AnnonceListComponent } from './components/annonce-list/annonce-list.com
     UpdateMobilierComponent,
     AdminCreateReclamationComponent,
     DetailMobilierComponent,
-    StatMobilierComponent,
+    StatMobilierComponent,    
     LoginComponent,
     RegisterComponent,
     HomeComponent,
@@ -69,7 +69,7 @@ import { AnnonceListComponent } from './components/annonce-list/annonce-list.com
     AddAnnonceComponent,
     AfficheAnnonceComponent,
     UpdateAnnonceComponent,
-
+    
 
   ],
   imports: [
