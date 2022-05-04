@@ -21,6 +21,8 @@ export class AnnonceService {
   private baseURL3 = environment.api_url +  "api/v1/deleteAnnonce";
   private baseURL4 = environment.api_url +  "api/v1/ModifierAnnonce";
   private baseURL5 = environment.api_url +  "api/v1/AS";
+  private baseURL6 = environment.api_url + "api/v1/AffecterCoupon";
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -74,6 +76,10 @@ export class AnnonceService {
     return this.httpClient.get<Annonce[]>(url,this.httpOptions);
   }
 
+  affecterCoupon(idannonce:number, code: string ): Observable<Annonce> {
+    const url = `${this.baseURL6}/${idannonce}/${code}`;
+    return this.httpClient.put<Annonce>(url, this.httpOptions)
+  }
 
 }
 

@@ -41,6 +41,8 @@ import { AnnonceDetailsComponent } from './components/annonce-details/annonce-de
 import { AddAnnonceComponent } from './components/add-annonce/add-annonce.component';
 import { AnnonceListComponent } from './components/annonce-list/annonce-list.component';
 
+import { AffecterCouponComponent } from './components/affecter-coupon/affecter-coupon.component';
+
 
 
 @NgModule({
@@ -69,6 +71,8 @@ import { AnnonceListComponent } from './components/annonce-list/annonce-list.com
     AddAnnonceComponent,
     AfficheAnnonceComponent,
     UpdateAnnonceComponent,
+    
+    AffecterCouponComponent
     
 
   ],
