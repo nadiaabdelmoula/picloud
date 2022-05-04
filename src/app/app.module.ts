@@ -18,8 +18,17 @@ import { ListTransporteurComponent } from './transporteur/list-transporteur/list
 import { UpdateTransporteurComponent } from './transporteur/update-transporteur/update-transporteur.component';
 import { NgbModal, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgToastModule } from 'ng-angular-popup'
+import {FullCalendarModule} from "@fullcalendar/angular";
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import { CreateEventComponent } from './calendar/create-event/create-event.component';
+import { AfficheEventComponent } from './calendar/affiche-event/affiche-event.component';
+import { CreateDemenagementComponent } from './demenagement/create-demenagement/create-demenagement.component';
 
-
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin
+]);
 
 @NgModule({
   declarations: [
@@ -29,7 +38,10 @@ import { NgToastModule } from 'ng-angular-popup'
     FooterComponent,
     CreateTransporteurComponent,
     ListTransporteurComponent,
-    UpdateTransporteurComponent
+    UpdateTransporteurComponent,
+    CreateEventComponent,
+    AfficheEventComponent,
+    CreateDemenagementComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +57,8 @@ import { NgToastModule } from 'ng-angular-popup'
     ReactiveFormsModule,
     NgbModule,
     NgbModalModule,
-    NgToastModule
+    NgToastModule,
+    FullCalendarModule
 
   ],
   providers: [],

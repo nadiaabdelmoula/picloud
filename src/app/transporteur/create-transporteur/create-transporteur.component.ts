@@ -30,6 +30,7 @@ export class CreateTransporteurComponent implements OnInit {
       etat: null
     }
   }
+
   getAllTransporteur(){
     this.transporteurservice.getAlltransporteur().subscribe(res=>this.listTransporteur=res)
 
@@ -44,4 +45,6 @@ export class CreateTransporteurComponent implements OnInit {
 
 
   }
+
+
 }

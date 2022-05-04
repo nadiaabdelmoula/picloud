@@ -11,6 +11,7 @@ import {NgToastService} from "ng-angular-popup";
   styleUrls: ['./list-transporteur.component.css']
 })
 export class ListTransporteurComponent implements OnInit {
+  a: Transporteur;
   listTransporteur: any;
   form: boolean = false;
   transporteur!: Transporteur;

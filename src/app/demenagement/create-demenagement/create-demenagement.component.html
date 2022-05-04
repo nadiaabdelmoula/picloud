@@ -1,0 +1,74 @@
+
+<!--/ Contact Star /-->
+<section class="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="contact-map box">
+
+        </div>
+      </div>
+      <div class="col-sm-12 section-t8">
+        <div class="row">
+          <div class="col-md-7">
+            <form class="form-a contactForm" action="" method="post" role="form">
+              <div id="Ajouter">Demenagement est ajouté!</div>
+              <div id="errormessage"></div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <div class="form-group">
+
+                    <input type="text" name="villeDepart" class="form-control form-control-lg form-control-a" placeholder="Ville de depart" data-rule="minlen:4" data-msg="Please enter at least 4 chars"
+                           [(ngModel)]="demenagement.villeDepart" [ngModelOptions]="{standalone:true}">
+                    <div class="validation"></div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <div class="form-group">
+                    <input name="villeArrive" type="text" class="form-control form-control-lg form-control-a" placeholder="Ville d'arrive" data-rule="minlen:4" data-msg="Please enter at least 4 chars"
+                           [(ngModel)]="demenagement.villeArrive" [ngModelOptions]="{standalone:true}" >
+                    <div class="validation"></div>
+                  </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                  <div class="form-group">
+                    <input type="date" name="dateDemenagement" class="form-control form-control-lg form-control-a" placeholder="DATE" data-rule="minlen:4" data-msg="Please enter at least 8 chars of cin"
+                           [(ngModel)]="demenagement.dateDemenagement" [ngModelOptions]="{standalone:true}">
+                    <div class="validation"></div>
+                  </div>
+                </div>
+                <div>
+                  <select [(ngModel)]="idt" [ngModelOptions]="{standalone:true}">
+                    <option   *ngFor='let transporteur of listTransporteur' value="{{transporteur.idTransporteur}}">
+                      {{transporteur.nom}}
+
+                    </option>
+                  </select>
+
+
+                </div>
+
+
+
+
+                <div class="col-md-12">
+                  <button type="button" class="btn btn-a" (click)="add1demenagement(demenagement, idt)">Ajouter</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--/ Contact End /-->
+
+
+
+
+
+
+
