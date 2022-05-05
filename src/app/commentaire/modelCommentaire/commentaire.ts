@@ -1,7 +1,14 @@
-export class Sujet{
+import {Sujet} from "../../sujet/modelSujet/sujet";
+import {User} from "../../models/user";
+import {ReactionCommentaire} from "../../reactionCommentaire/modelReactionCommentaire/reactionCommentaire";
+
+export class Commentaire{
   id:number;
-  titre: string;
-  description:string;
-  image:string;
-  dateAjout : Date;
+  comment: string;
+  dateAjout:Date;
+ // sujet:Sujet;
+  iduser : number;
+  user : User;
+  reactions : ReactionCommentaire[];
+
 }
