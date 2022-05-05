@@ -20,11 +20,12 @@
             <div class="card">
               <div class="card-image">
                 
-                <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                <img [src]="user.image"  alt="">
               </div>
               
               <div class="details">
-                <a >Modifer photo</a>
+                <input type="file" #img accept="image/*" multiple hidden (change)="imageLoad($event)" [(ngModel)]="image">
+  <a style="color: white;" (click)="img.click()" >Changer image</a>
                
               </div>
             </div>
