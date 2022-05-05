@@ -1,0 +1,118 @@
+
+
+  <!--/ Intro Single star /-->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Nos Annonces</h1>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="#">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Properties Grid
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+  <!--/ Property Grid Star /-->
+  <style>
+    .my-pagination /deep/ .ngx-pagination .current {
+    
+      background: #2eca6a;
+      
+    }
+  </style>
+  <section class="property-grid grid">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="grid-option">
+            <nav class="navbar">
+              <input class="form-control" style="width: 300px;" type="text" name="localisation" [(ngModel)]="localisation" (ngModelChange)="Search()"
+              placeholder="Chercher par ville">
+            </nav>
+          </div>
+        </div>
+        
+    
+       
+        
+       
+        <div class="col-md-4" *ngFor = "let annonce of annonces | paginate: { itemsPerPage: 6, currentPage: p }">
+          <div class="card-box-a card-shadow">
+            <div class="img-box-a" >
+              <img [src]="annonce.placeholder" alt="" class="img-a img-fluid" style="height: 400px; width: 380px">
+            </div>
+            <div class="card-overlay">
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a">
+                    <a href="#">
+                      <br>{{ annonce.titre }}</a>
+                  </h2>
+                </div>
+                <div class="card-header-a">
+                  <h2 class="card-title-a">
+                    <a href="#">{{ annonce.localisation }}</a>
+                  </h2>
+                </div>
+              
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a">Prix |  {{ annonce.prix }} DT </span>
+                  </div>
+                  <a  (click)="detailAnnonce(annonce.id)" class="link-a">Click here to view
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </div>
+                <div class="card-footer-a">
+                  <ul class="card-info d-flex justify-content-around">
+                    <li>
+                      <h4 class="card-info-title">Surface</h4>
+                      <span>{{annonce.surface}}
+                        <sup>2</sup>
+                      </span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Chambres</h4>
+                      <span>{{annonce.nbchambre}}</span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Baths</h4>
+                      <span>4</span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Etage</h4>
+                      <span>1</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    <div  style="margin-left:70%;" >    
+      <pagination-controls  class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+    </div>
+
+  </section>
+  <!--/ Property Grid End /-->
+
+  <!--/ footer Star /-->
+  

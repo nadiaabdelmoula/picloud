@@ -26,7 +26,10 @@ import { DetailMobilierComponent } from './mobilier/detail-mobilier/detail-mobil
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgChartsModule } from 'ng2-charts';
 import { StatMobilierComponent } from './mobilier/stat-mobilier/stat-mobilier.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AfficheAnnonceComponent } from './components/affiche-annonce/affiche-annonce.component';
+import { UpdateAnnonceComponent } from './components/update-annonce/update-annonce.component';
 
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -34,6 +37,13 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { EditUserComponent } from './popup/edit-user/edit-user.component';
+import { AnnonceDetailsComponent } from './components/annonce-details/annonce-details.component';
+import { AddAnnonceComponent } from './components/add-annonce/add-annonce.component';
+import { AnnonceListComponent } from './components/annonce-list/annonce-list.component';
+
+import { AffecterCouponComponent } from './components/affecter-coupon/affecter-coupon.component';
+
+
 
 @NgModule({
   declarations: [
@@ -56,6 +66,15 @@ import { EditUserComponent } from './popup/edit-user/edit-user.component';
     ProfileComponent,
     BoardAdminComponent,
     EditUserComponent,
+    AnnonceListComponent,
+    AnnonceDetailsComponent,
+    AddAnnonceComponent,
+    AfficheAnnonceComponent,
+    UpdateAnnonceComponent,
+    
+    AffecterCouponComponent
+    
+
   ],
   imports: [
     BrowserModule,
@@ -71,8 +90,11 @@ import { EditUserComponent } from './popup/edit-user/edit-user.component';
     MatSelectModule,
     NgbModule,
     NgChartsModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ],
   providers: [authInterceptorProviders],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -36,7 +36,11 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
+<<<<<<< HEAD
 /package-lock.json
+=======
+
+>>>>>>> annonce
 # System files
 .DS_Store
 Thumbs.db
