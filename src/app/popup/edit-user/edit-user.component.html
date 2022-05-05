@@ -11,29 +11,7 @@
       #f="ngForm"
       novalidate >
         <div class="row" >
-          <div class="col-md-10 mb-2">
-            <div class="form-group">
-              <label for="Type">username</label>
-              <input type="text" class="form-control form-control-lg form-control-a" 
-              placeholder="Keyword"
-              name="username"
-              [(ngModel)]="user.username"
-              required
-              minlength="3"
-              maxlength="20"
-              #username="ngModel"
-            />
-            <div class="alert-danger" *ngIf="username.errors && f.submitted">
-                <div *ngIf="username.errors['required']">Username is required</div>
-                <div *ngIf="username.errors['minlength']">
-                  Username must be at least 3 characters
-                </div>
-                <div *ngIf="username.errors['maxlength']">
-                  Username must be at most 20 characters
-                </div>
-              </div>
-            </div>
-          </div>
+          
          
          
           <div class="col-md-10 mb-2">
