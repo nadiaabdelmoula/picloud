@@ -51,7 +51,7 @@ import { AffecterCouponComponent } from './components/affecter-coupon/affecter-c
     NavbarComponent,
     FooterComponent,
     CreateReclamationComponent,
-    UpdateReclamationComponent,
+    UpdateReclamationComponent, 
     AdminReclamationComponent,
     ListReclamationComponent,
     CreateMobilierComponent,

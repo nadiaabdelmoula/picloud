@@ -1,6 +1,6 @@
 import { Annonce } from "./annonce.model";
 import { ImageVideo } from "./ImageVideo";
-import { RDV } from "./RDV";
+import {  rdvs } from "./RDV";
 import { Role } from "./role";
 
 export class User {
@@ -12,5 +12,5 @@ export class User {
     telephone:number;
     annonces:Annonce[];
     image:String;
-    RDV:RDV[];
+    rdvs:rdvs[];
 }

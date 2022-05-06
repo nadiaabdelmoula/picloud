@@ -1,9 +1,7 @@
 import { Annonce } from "./annonce.model";
-import { User } from "./user";
 
-export class RDV{
+export class rdvs{
     id:number;
-    date:Date;
-    user:User;
-    annonce:Annonce;
+    dateRDV:Date;
+    annonce : Annonce; 
 }
