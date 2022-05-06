@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ImageVideo } from '../models/ImageVideo';
+import {  rdvs } from '../models/RDV';
 import { User } from '../models/user';
 import { EditUserComponent } from '../popup/edit-user/edit-user.component';
 import { TokenStorageService } from '../_services/token-storage.service';
@@ -15,14 +16,12 @@ export class ProfileComponent implements OnInit {
   user = new User();
   ListAnnonce :any[];
 CountAnnonce:any;
+Countrdv:any;
+
 Userstatus:any;
 image: string = '';
   imageSrc : ImageVideo[] = [];
-
-
-
-
-
+ListRDV:rdvs[];
   constructor(private token: TokenStorageService,
                 private userService: UserService,
                 private modaleservice:NgbModal) { }
@@ -33,7 +32,13 @@ image: string = '';
     this.userService.getUserByUsername(this.currentUser.username).subscribe(data => {
       this.user = data;
       this.ListAnnonce=data.annonces;
+      this.ListRDV=data.rdvs;
+      console.log(data.rdvs);
+      
+      
+      
       this.CountAnnonce=data.annonces.length;
+      this.Countrdv=data.rdvs.length;
     }
       )
   }
@@ -92,6 +97,21 @@ imageLoad(e: any) {
   }
 
 
+}
+
+deleteRDV(id:any){
+  console.log(id);
+  
+  if(this.userService.deleteRDV(id).subscribe(data => {
+      
+   
+  }))
+  window.location.reload();
+
+}
+
+reschedule(id:any){
+  
 }
 
 }

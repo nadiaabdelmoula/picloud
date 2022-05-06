@@ -141,6 +141,32 @@
           </div>
         </div>
       </div>
+
+      <div class="col-md-12 section-t8">
+        <div class="title-box-d">
+          <h3 class="title-d">Mes Rendez-vous ({{ Countrdv }}) </h3>
+        </div>
+      </div>
+
+        
+        <table>
+          <tr>
+            
+            <th>date</th>
+            <th>Localisation </th>
+            <th>Actions</th>
+          </tr>
+          <tr *ngFor="let r of ListRDV">
+              
+              <td> {{ r.dateRDV | date }} </td>
+              <td> {{ r.annonce.localisation }}</td>
+              <td><button (click)="deleteRDV(r.id)" style="background-color:rgba(240, 255, 255, 0); border: none;" ><i style="color: red; font-size:26px;" class="fa fa-trash"></i></button>
+                <button  (click)="reschedule(r.id)"  style="background-color:rgba(240, 255, 255, 0); border: none;"><i style="color: rgb(0, 174, 255);font-size:26px;" class="far fa-calendar-alt"></i></button>
+              </td>
+          </tr>
+        </table>
+
+     
     </div>
   </div>
   <br><br>

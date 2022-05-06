@@ -41,7 +41,7 @@ import { EditUserComponent } from './popup/edit-user/edit-user.component';
     NavbarComponent,
     FooterComponent,
     CreateReclamationComponent,
-    UpdateReclamationComponent,
+    UpdateReclamationComponent, 
     AdminReclamationComponent,
     ListReclamationComponent,
     CreateMobilierComponent,
