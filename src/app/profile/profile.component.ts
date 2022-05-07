@@ -22,11 +22,20 @@ Userstatus:any;
 image: string = '';
   imageSrc : ImageVideo[] = [];
 ListRDV:rdvs[];
+x:any;
+y:Date=new Date();
+diff:any;
+alerts:Array<String>=[];
+alert:String;
   constructor(private token: TokenStorageService,
                 private userService: UserService,
                 private modaleservice:NgbModal) { }
   ngOnInit(): void {
+    console.log("azeazeae");
+      
+    console.log(this.alerts);
     this.currentUser = this.token.getUser();
+console.log(this.y);
 
 
     this.userService.getUserByUsername(this.currentUser.username).subscribe(data => {
@@ -35,13 +44,51 @@ ListRDV:rdvs[];
       this.ListRDV=data.rdvs;
       console.log(data.rdvs);
       
+      console.log(this.y);
+      
+      this.ListRDV.forEach(r=> {
+        
+        
+       if(r.dateRDV > this.y)
+       {
+       this.diff= -this.calculateDiff(r.dateRDV);
+       /*if (this.diff<=5){
+         this.alert="Vous avez un rendez vous a "+r.annonce.localisation +" dans "+this.diff+"jours"
+         console.log(this.alert);
+       }*/
+       if (this.diff<=2){
+        this.alert="Demain vous avez un rendez vous  a "+r.annonce.localisation+
+        " pour visiter la "+r.annonce.titre;
+        this.alerts.push(this.alert);
+        console.log(this.alert);
+       }
+           
+         
+       } 
+      })
+      
+      
+
+
+
+
       
       
       this.CountAnnonce=data.annonces.length;
       this.Countrdv=data.rdvs.length;
     }
       )
+
+    
+      
   }
+
+  calculateDiff(dateSent:any){
+    let currentDate = new Date();
+    dateSent = new Date(dateSent);
+
+    return Math.floor((Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()) - Date.UTC(dateSent.getFullYear(), dateSent.getMonth(), dateSent.getDate()) ) /(1000 * 60 * 60 * 24));
+}
 
   update(user:User){
     const ref= this.modaleservice.open(EditUserComponent,{ centered: true });
@@ -113,5 +160,7 @@ deleteRDV(id:any){
 reschedule(id:any){
   
 }
-
+close(alert: any) {
+  this.alerts.splice(this.alerts.indexOf(alert), 1);
+}
 }
