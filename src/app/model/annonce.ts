@@ -14,6 +14,6 @@ export class Annonce {
     typeAnnonce: string;
     user: User;
     imageVideo:ImageVideo[];
-    placeholder:String
+    placeholder:String;
 
 }

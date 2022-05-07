@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../models/user';
+import { User } from '../model/user';
+import { environment } from 'src/environments/environment';
 
 const API_URL = 'http://localhost:8081/SpringMVC/api/test/';
 @Injectable({
@@ -10,6 +11,7 @@ const API_URL = 'http://localhost:8081/SpringMVC/api/test/';
 export class UserService {
   
 private baseURL = "http://localhost:8081/SpringMVC/api/v1/users";
+private baseURL7 = environment.api_url + "api/v1/usersFA";
   constructor(private http: HttpClient) { }
   getPublicContent(): Observable<any> {
     return this.http.get(API_URL + 'all', { responseType: 'text' });
@@ -26,7 +28,9 @@ private baseURL = "http://localhost:8081/SpringMVC/api/v1/users";
   getUserByUsername(username: String):Observable<User>{
     return this.http.get<User>(`${this.baseURL}/${username}`);
   }
-
+  getUserByIdForAnnonce(id: any):Observable<User>{
+    return this.http.get<User>(`${this.baseURL7}/${id}`);
+  }
   updateUser(id:any, data: any): Observable<any> {
     return this.http.put(`${this.baseURL}/${id}`, data);
   }

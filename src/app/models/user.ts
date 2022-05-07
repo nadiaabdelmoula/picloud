@@ -10,5 +10,5 @@ export class User {
     roles:Role[];
     telephone:number;
     annonces:Annonce[];
-    imageVideo:ImageVideo[];
+    image:String;
 }

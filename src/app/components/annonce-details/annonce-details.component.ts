@@ -6,6 +6,7 @@ import { AnnonceFetch } from 'src/app/model/annonce-fetch';
 import { User } from 'src/app/model/user';
 import { AnnonceService } from 'src/app/service/annonce.service';
 import { AffecterCouponComponent } from '../affecter-coupon/affecter-coupon.component';
+import { CoorndonneesComponent } from '../coorndonnees/coorndonnees.component';
 
 @Component({
   selector: 'app-annonce-details',
@@ -47,12 +48,14 @@ export class AnnonceDetailsComponent implements OnInit {
     this.annonceservice.findByID(this.val).subscribe(data => {
       this.annonce = data;
       this.user=data.user;
-      console.log(this.user.nom);
+      console.log(this.user.id);
+    
       
     }
       )
 
       this.AnnonceSimilaires();
+     
     
   }
 
@@ -92,7 +95,22 @@ export class AnnonceDetailsComponent implements OnInit {
 affecterCoupon(idannonce:number){
   const ref= this.modaleservice.open(AffecterCouponComponent,{ centered: true });
   ref.componentInstance.idannonce = idannonce;
+  
 
+  ref.result.then((yes)=>{
+    console.log("ok click");
+    
+  },
+  (cancel)=>{
+console.log("Cancel click");
+
+  })
+}
+
+recupererCoordonees(idannonce:number){
+  const ref= this.modaleservice.open(CoorndonneesComponent,{ centered: true });
+  ref.componentInstance.idannonce = idannonce;
+  console.log(idannonce);
   ref.result.then((yes)=>{
     console.log("ok click");
     
