@@ -52,7 +52,7 @@ import { CoorndonneesComponent } from './components/coorndonnees/coorndonnees.co
     NavbarComponent,
     FooterComponent,
     CreateReclamationComponent,
-    UpdateReclamationComponent,
+    UpdateReclamationComponent, 
     AdminReclamationComponent,
     ListReclamationComponent,
     CreateMobilierComponent,

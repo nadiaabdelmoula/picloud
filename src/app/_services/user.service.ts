@@ -11,7 +11,13 @@ const API_URL = 'http://localhost:8081/SpringMVC/api/test/';
 export class UserService {
   
 private baseURL = "http://localhost:8081/SpringMVC/api/v1/users";
+
 private baseURL7 = environment.api_url + "api/v1/usersFA";
+
+private baseRDV ="http://localhost:8081/SpringMVC/api/v1/DeleteRDV"
+private baseRDVUpdate ="http://localhost:8081/SpringMVC/api/v1/RDVs"
+private baseURLIMG = "http://localhost:8081/SpringMVC/api/v1/users/SetImage";
+
   constructor(private http: HttpClient) { }
   getPublicContent(): Observable<any> {
     return this.http.get(API_URL + 'all', { responseType: 'text' });
@@ -34,6 +40,20 @@ private baseURL7 = environment.api_url + "api/v1/usersFA";
   updateUser(id:any, data: any): Observable<any> {
     return this.http.put(`${this.baseURL}/${id}`, data);
   }
+
+  SetUserImage(id:any, image: any): Observable<any> {
+    return this.http.put(`${this.baseURLIMG}/${id}`, image);
+  }
+
+  public deleteRDV(id: number){
+    return this.http.delete(`${this.baseRDV}/${id}`);
+  }
+
+  UpdateRDV(id:any,daterdv:any): Observable<any> {
+    return this.http.put(`${this.UpdateRDV}/${id}`, daterdv);
+  }
+
+
 
   
 }
