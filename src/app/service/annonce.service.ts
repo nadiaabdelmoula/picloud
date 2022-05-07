@@ -15,19 +15,19 @@ export class AnnonceService {
     headers: this.headers
   }
 
-  private baseURL =  environment.api_url +  "api/v1/AjoutAnnonce/1";
+  private baseURL =  environment.api_url +  "api/v1/AjoutAnnonce";
   private baseURL2 = environment.api_url +  "api/v1/AfficheAnnonce";
   private baseURL1 = environment.api_url +  "api/v1/AfficheAnnonce";
   private baseURL3 = environment.api_url +  "api/v1/deleteAnnonce";
   private baseURL4 = environment.api_url +  "api/v1/ModifierAnnonce";
   private baseURL5 = environment.api_url +  "api/v1/AS";
   private baseURL6 = environment.api_url + "api/v1/AffecterCoupon";
-
+  private baseURL7 = environment.api_url + "api/v1/getuserfromannonce";
 
   constructor(private httpClient: HttpClient) { }
 
-  create(data: Annonce): Observable<Object> {
-    return this.httpClient.post(`${this.baseURL}`, data);
+  create(data: Annonce, id:any): Observable<Object> {
+    return this.httpClient.post(`${this.baseURL}/${id}`, data);
 
   }
 
@@ -79,6 +79,10 @@ export class AnnonceService {
   affecterCoupon(idannonce:number, code: string ): Observable<Annonce> {
     const url = `${this.baseURL6}/${idannonce}/${code}`;
     return this.httpClient.put<Annonce>(url, this.httpOptions)
+  }
+
+  getUserByAnnonce(id: any){
+    return this.httpClient.get<number>(`${this.baseURL7}/${id}`);
   }
 
 }

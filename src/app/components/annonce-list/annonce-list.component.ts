@@ -45,4 +45,8 @@ export class AnnonceListComponent implements OnInit {
 
   }
 
+   create(){
+    this.router.navigate(['/add']);
+
+  }
 }

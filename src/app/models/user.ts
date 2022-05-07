@@ -12,5 +12,7 @@ export class User {
     telephone:number;
     annonces:Annonce[];
     image:String;
+
     rdvs:rdvs[];
+
 }
