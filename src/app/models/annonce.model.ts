@@ -7,6 +7,6 @@ export class Annonce {
     nbchambre: number;
     prix: number;
     surface: number;
-    typeannonce: string;
+    typeAnnonce: string;
 
 }

@@ -6,6 +6,8 @@ import { AnnonceService } from 'src/app/service/annonce.service';
 import { FileUploadService } from 'src/app/service/file-upload.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { ImageVideo } from 'src/app/model/ImageVideo';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-add-annonce',
@@ -23,20 +25,24 @@ export class AddAnnonceComponent implements OnInit {
  // IMAGEVIDEO
   image: string = '';
   imageSrc : ImageVideo[] = [];
+  currentuser:User;
+
   
 
     annonce: Annonce = new Annonce();
     constructor(private annonceService: AnnonceService,private router: Router, 
-    private uploadService: FileUploadService) { }
+    private uploadService: FileUploadService,private token: TokenStorageService) { }
   
     ngOnInit(): void {
       console.log(this.isSuccessful + "on init ");
+      this.currentuser=this.token.getUser();
+
     }
     
   
     save(){
       this.annonce.imageVideo = this.imageSrc;
-      this.annonceService.create(this.annonce).subscribe(data => {
+      this.annonceService.create(this.annonce,this.currentuser.id).subscribe(data => {
         console.log(data);
         this.isSuccessful=true;
       },error => console.log(error))
@@ -68,7 +74,7 @@ export class AddAnnonceComponent implements OnInit {
     
   
     RedirectToAnnonceList(){
-  this.router.navigate(['/affiche']);
+  this.router.navigate(['/annonces']);
     }
   
     onSubmit(){
@@ -146,6 +152,10 @@ GoLogin(){
   console.log(this.isSuccessful +" on create");
   this.uploadFiles();
   this.RedirectToAnnonceList();
+}
+
+createNew(){
+  this.isSuccessful=false;
 }
   
      }
