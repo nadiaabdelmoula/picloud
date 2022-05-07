@@ -22,15 +22,15 @@ export class UpdateAnnonceComponent implements OnInit {
 
     });
     console.log("id: "+ this.val);
-   this.annonceservice.getUpdateAnnonce(this.val).subscribe(data => {
+    this.annonceservice.getUpdateAnnonce(this.val).subscribe(data => {
       this.annonce = data;}
-      )
+    )
 
-    
+
   }
 
 
- update(){
+  update(){
     this.annonceservice.updateAnnonce(this.annonce).subscribe(data => {
 
     });
@@ -38,14 +38,14 @@ export class UpdateAnnonceComponent implements OnInit {
     this.getAnnonce();
 
   }
-  
+
 
 
   getAnnonce() {
     this.annonceservice.getAnnoncelist().subscribe((response) => {
       this.annonces = response;
     });
-}
+  }
 
 
 }

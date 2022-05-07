@@ -1,5 +1,5 @@
-import { ImageVideo } from "./ImageVideo";
-import { User } from "./user";
+import { ImageVideo } from "../models/ImageVideo";
+import { User } from "../models/user";
 
 export class AnnonceFetch {
     id: number ;

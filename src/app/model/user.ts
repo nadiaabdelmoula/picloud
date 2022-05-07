@@ -1,11 +1,14 @@
+import { Role } from "../models/role";
+import { Annonce } from "./annonce";
+
+
 export class User {
-    id: number ;
-    cin: number;
+    id: number;
+    username: string;
     email: string;
-    etat: boolean;
-    mdp: string;
-    nom: string;
-    photos: string;
-    prenom: string;
-    type: string
+    password: string;
+    roles:Role[];
+    telephone:number;
+    annonces:Annonce[];
+    image:String;
 }

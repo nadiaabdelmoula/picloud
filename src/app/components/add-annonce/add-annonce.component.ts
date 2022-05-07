@@ -5,7 +5,9 @@ import { Annonce } from 'src/app/model/annonce';
 import { AnnonceService } from 'src/app/service/annonce.service';
 import { FileUploadService } from 'src/app/service/file-upload.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { ImageVideo } from 'src/app/model/ImageVideo';
+import { ImageVideo } from 'src/app/models/ImageVideo';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-add-annonce',
@@ -23,30 +25,34 @@ export class AddAnnonceComponent implements OnInit {
  // IMAGEVIDEO
   image: string = '';
   imageSrc : ImageVideo[] = [];
-  
+  currentuser:User;
+
+
 
     annonce: Annonce = new Annonce();
-    constructor(private annonceService: AnnonceService,private router: Router, 
-    private uploadService: FileUploadService) { }
-  
+    constructor(private annonceService: AnnonceService,private router: Router,
+    private uploadService: FileUploadService,private token: TokenStorageService) { }
+
     ngOnInit(): void {
       console.log(this.isSuccessful + "on init ");
+      this.currentuser=this.token.getUser();
+
     }
-    
-  
+
+
     save(){
       this.annonce.imageVideo = this.imageSrc;
-      this.annonceService.create(this.annonce).subscribe(data => {
+      this.annonceService.create(this.annonce,this.currentuser.id).subscribe(data => {
         console.log(data);
         this.isSuccessful=true;
       },error => console.log(error))
     }
     imageLoad(e: any) {
       var reader ;
-  
+
       for (let i = 0; i < e.target.files.length; i++) {
-  
-  
+
+
       var file = e.dataTransfer ? e.dataTransfer.files[i] : e.target.files[i];
       var pattern = /image-*/;
       if (!file.type.match(pattern)) {
@@ -65,12 +71,12 @@ export class AddAnnonceComponent implements OnInit {
         }
     }
 
-    
-  
+
+
     RedirectToAnnonceList(){
-  this.router.navigate(['/affiche']);
+  this.router.navigate(['/annonces']);
     }
-  
+
     onSubmit(){
       //console.log(this.user);
       this.save();
@@ -147,5 +153,9 @@ GoLogin(){
   this.uploadFiles();
   this.RedirectToAnnonceList();
 }
-  
+
+createNew(){
+  this.isSuccessful=false;
+}
+
      }

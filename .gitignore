@@ -5,7 +5,7 @@
 /tmp
 /out-tsc
 /bazel-out
-
+/target/*
 # Node
 /node_modules
 npm-debug.log
@@ -36,11 +36,10 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
-<<<<<<< HEAD
-/package-lock.json
-=======
 
->>>>>>> annonce
+/package-lock.json
+
+
 # System files
 .DS_Store
 Thumbs.db

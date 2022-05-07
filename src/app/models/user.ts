@@ -1,7 +1,11 @@
+
 import { Annonce } from "./annonce.model";
 import { ImageVideo } from "./ImageVideo";
-import {  rdvs } from "./RDV";
+import { rdvs } from "./RDV";
+
+
 import { Role } from "./role";
+import {Commentaire} from "../commentaire/modelCommentaire/commentaire";
 
 export class User {
     id: number;
@@ -13,4 +17,6 @@ export class User {
     annonces:Annonce[];
     image:String;
     rdvs:rdvs[];
+    commentaires: Commentaire;
 }
+
