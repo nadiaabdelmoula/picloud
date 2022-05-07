@@ -15,6 +15,12 @@ import {AnnonceDetailsComponent} from "./components/annonce-details/annonce-deta
 import {AfficheAnnonceComponent} from "./components/affiche-annonce/affiche-annonce.component";
 import {UpdateAnnonceComponent} from "./components/update-annonce/update-annonce.component";
 import {AddAnnonceComponent} from "./components/add-annonce/add-annonce.component";
+import { CommonModule } from '@angular/common';
+import { UpdateSujetComponent } from './sujet/update-sujet/update-sujet.component';
+import { ListSujetComponent } from './sujet/list-sujet/list-sujet.component';
+import { CreateSujetComponent } from './sujet/create-sujet/create-sujet.component';
+import { ShowSujetComponent } from './sujet/show-sujet/show-sujet.component';
+
 
 const routes: Routes = [
   {
@@ -51,9 +57,11 @@ const routes: Routes = [
   { path: 'add', component: AddAnnonceComponent },
   { path: 'affiche', component: AfficheAnnonceComponent },
   { path: 'update/:id', component: UpdateAnnonceComponent },
-
+  {path:'home',component:HomeComponent},
+  {path:'forum',component:ListSujetComponent},
+  {path:'forum/new',component:CreateSujetComponent},
+  {path:'forum/show/:id',component:ShowSujetComponent},
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

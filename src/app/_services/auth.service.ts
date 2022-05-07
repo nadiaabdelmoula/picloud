@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 const AUTH_API = 'http://localhost:8081/SpringMVC/api/auth/';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -27,6 +28,6 @@ export class AuthService {
       telephone
     }, httpOptions);
   }
-
-  
 }
+
+

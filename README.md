@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Cloudpi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
@@ -13,6 +14,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
 >>>>>>> annonce
+=======
+# DariTnAngular1.0
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
+>>>>>>> forum-comment
 
 ## Development server
 
