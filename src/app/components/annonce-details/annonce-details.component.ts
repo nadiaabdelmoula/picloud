@@ -47,7 +47,7 @@ export class AnnonceDetailsComponent implements OnInit {
     this.annonceservice.findByID(this.val).subscribe(data => {
       this.annonce = data;
       this.user=data.user;
-      console.log(this.user.nom);
+      console.log(data.user);
       
     }
       )
