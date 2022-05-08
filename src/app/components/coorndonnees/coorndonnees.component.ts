@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/model/user';
+import { User } from 'src/app/models/user';
 import { AnnonceService } from 'src/app/service/annonce.service';
 import { UserService } from 'src/app/_services/user.service';
 
@@ -22,10 +22,10 @@ export class CoorndonneesComponent implements OnInit {
       console.log(this.userid);
       this.userservice.getUserByIdForAnnonce(data).subscribe(data => {
         this.user=data;
-        
+
       })
     });
-    
+
   }
 
 }

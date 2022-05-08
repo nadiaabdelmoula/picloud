@@ -42,6 +42,7 @@ export class EditUserComponent implements OnInit {
         this.modal.close('Yes');
         this.user.username=res.username;
         
+        
       },
       error: (e) => console.error(e)
     });

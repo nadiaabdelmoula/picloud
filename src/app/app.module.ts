@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,11 +27,22 @@ import { DetailMobilierComponent } from './mobilier/detail-mobilier/detail-mobil
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgChartsModule } from 'ng2-charts';
 import { StatMobilierComponent } from './mobilier/stat-mobilier/stat-mobilier.component';
+
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 import { AfficheAnnonceComponent } from './components/affiche-annonce/affiche-annonce.component';
 import { UpdateAnnonceComponent } from './components/update-annonce/update-annonce.component';
-
+import { UpdateSujetComponent } from './sujet/update-sujet/update-sujet.component';
+import { ListSujetComponent } from './sujet/list-sujet/list-sujet.component';
+import { CreateSujetComponent } from './sujet/create-sujet/create-sujet.component';
+import { ShowSujetComponent } from './sujet/show-sujet/show-sujet.component';
+import { ListCommentaireComponent } from './commentaire/list-commentaire/list-commentaire.component';
+import { VideoStreamingComponent } from './video-streaming/video-streaming.component';
+import {WebcamModule} from "ngx-webcam";
+import { VideoStreaming2Component } from './video-streaming2/video-streaming2.component';
+import { VideoStreaming3Component } from './video-streaming3/video-streaming3.component';
+import { CreateCommentaireComponent } from './commentaire/create-commentaire/create-commentaire.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
@@ -40,16 +52,16 @@ import { EditUserComponent } from './popup/edit-user/edit-user.component';
 import { AnnonceDetailsComponent } from './components/annonce-details/annonce-details.component';
 import { AddAnnonceComponent } from './components/add-annonce/add-annonce.component';
 import { AnnonceListComponent } from './components/annonce-list/annonce-list.component';
-
 import { AffecterCouponComponent } from './components/affecter-coupon/affecter-coupon.component';
 import { CoorndonneesComponent } from './components/coorndonnees/coorndonnees.component';
 
-
+import { ShowReactionCommentaireComponent } from './reactionCommentaire/show-reaction-commentaire/show-reaction-commentaire.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+
     FooterComponent,
     CreateReclamationComponent,
     UpdateReclamationComponent,
@@ -60,7 +72,7 @@ import { CoorndonneesComponent } from './components/coorndonnees/coorndonnees.co
     UpdateMobilierComponent,
     AdminCreateReclamationComponent,
     DetailMobilierComponent,
-    StatMobilierComponent,    
+    StatMobilierComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
@@ -72,10 +84,25 @@ import { CoorndonneesComponent } from './components/coorndonnees/coorndonnees.co
     AddAnnonceComponent,
     AfficheAnnonceComponent,
     UpdateAnnonceComponent,
-    
     AffecterCouponComponent,
-          CoorndonneesComponent
-    
+    CoorndonneesComponent,
+    UpdateSujetComponent,
+    ListSujetComponent,
+    CreateSujetComponent,
+    HomeComponent,
+    FooterComponent,
+    ShowSujetComponent,
+    ListCommentaireComponent,
+    VideoStreamingComponent,
+    VideoStreaming2Component,
+    VideoStreaming3Component,
+    CreateCommentaireComponent,
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    BoardAdminComponent,
+    ShowReactionCommentaireComponent,
 
   ],
   imports: [
@@ -93,10 +120,12 @@ import { CoorndonneesComponent } from './components/coorndonnees/coorndonnees.co
     NgbModule,
     NgChartsModule,
     Ng2SearchPipeModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    HttpClientModule,
+    FormsModule,
+    WebcamModule
   ],
   providers: [authInterceptorProviders],
-
   bootstrap: [AppComponent]
 })
 export class AppModule { }

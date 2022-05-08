@@ -5,7 +5,7 @@ import { Annonce } from 'src/app/model/annonce';
 import { AnnonceService } from 'src/app/service/annonce.service';
 import { FileUploadService } from 'src/app/service/file-upload.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { ImageVideo } from 'src/app/model/ImageVideo';
+import { ImageVideo } from 'src/app/models/ImageVideo';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { User } from 'src/app/models/user';
 
@@ -27,19 +27,19 @@ export class AddAnnonceComponent implements OnInit {
   imageSrc : ImageVideo[] = [];
   currentuser:User;
 
-  
+
 
     annonce: Annonce = new Annonce();
-    constructor(private annonceService: AnnonceService,private router: Router, 
+    constructor(private annonceService: AnnonceService,private router: Router,
     private uploadService: FileUploadService,private token: TokenStorageService) { }
-  
+
     ngOnInit(): void {
       console.log(this.isSuccessful + "on init ");
       this.currentuser=this.token.getUser();
 
     }
-    
-  
+
+
     save(){
       this.annonce.imageVideo = this.imageSrc;
       this.annonceService.create(this.annonce,this.currentuser.id).subscribe(data => {
@@ -49,10 +49,10 @@ export class AddAnnonceComponent implements OnInit {
     }
     imageLoad(e: any) {
       var reader ;
-  
+
       for (let i = 0; i < e.target.files.length; i++) {
-  
-  
+
+
       var file = e.dataTransfer ? e.dataTransfer.files[i] : e.target.files[i];
       var pattern = /image-*/;
       if (!file.type.match(pattern)) {
@@ -71,12 +71,12 @@ export class AddAnnonceComponent implements OnInit {
         }
     }
 
-    
-  
+
+
     RedirectToAnnonceList(){
   this.router.navigate(['/annonces']);
     }
-  
+
     onSubmit(){
       //console.log(this.user);
       this.save();
@@ -157,5 +157,5 @@ GoLogin(){
 createNew(){
   this.isSuccessful=false;
 }
-  
+
      }
