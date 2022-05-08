@@ -23,6 +23,8 @@ export class AnnonceService {
   private baseURL5 = environment.api_url +  "api/v1/AS";
   private baseURL6 = environment.api_url + "api/v1/AffecterCoupon";
   private baseURL7 = environment.api_url + "api/v1/getuserfromannonce";
+  private baseURL8 = environment.api_url +  "api/v1/AfficheAnnonceCoupon";
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -84,6 +86,11 @@ export class AnnonceService {
   getUserByAnnonce(id: any){
     return this.httpClient.get<number>(`${this.baseURL7}/${id}`);
   }
+
+  getAnnonceCoupon(){
+    return this.httpClient.get<Annonce[]>(`${this.baseURL8}`);
+  }
+
 
 }
 
