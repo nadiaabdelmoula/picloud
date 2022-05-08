@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Coupon } from 'src/app/model/coupon';
 import { AnnonceService } from 'src/app/service/annonce.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { AnnonceService } from 'src/app/service/annonce.service';
 export class AffecterCouponComponent implements OnInit {
 
   code:any;
+  coupon:Coupon;
   idannonce:number;
   
   constructor(public modal: NgbActiveModal,public annonceservice:AnnonceService) { }
