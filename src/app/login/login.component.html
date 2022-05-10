@@ -10,12 +10,12 @@
             <div class="col-md-8 mb-2">
                 <div class="form-group">
 
-                    <i class="fa fa-user" style="padding-left: 5px;padding-right: 10px;"></i><label for="Type">Username</label>
+                    <i class="fa fa-user" style="padding-left: 5px;padding-right: 10px;"></i><label for="Type">Pseudo</label> 
 
                     <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword"
                         name="username" [(ngModel)]="user.username" required #username="ngModel" />
                     <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">
-                        Username is required!
+                        Pseudo est obligatoire
                     </div>
                 </div>
             </div>
@@ -28,9 +28,9 @@
                     <input type="password" class="form-control form-control-lg form-control-a" placeholder="Keyword "
                         name="password" [(ngModel)]="user.password" required minlength="6" #password="ngModel" />
                     <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
-                        <div *ngIf="password.errors['required']">Password is required</div>
+                        <div *ngIf="password.errors['required']">Le mot de passe est obligatoire</div>
                         <div *ngIf="password.errors['minlength']">
-                            Password must be at least 6 characters
+                            Le mot de passe doit contenir minumum 6 caracteres
                         </div>
                     </div>
                 </div>

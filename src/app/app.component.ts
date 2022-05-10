@@ -27,6 +27,10 @@ export class AppComponent {
 
     }
 
+    else this.router.navigate(['/inscri']);
+   
+   
+
   }
   logout(): void {
     this.tokenStorageService.signOut();

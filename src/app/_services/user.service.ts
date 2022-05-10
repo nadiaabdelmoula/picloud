@@ -1,8 +1,16 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import {User} from '../models/user';
+import { rdvs } from '../models/RDV';
 import {environment} from 'src/environments/environment';
+
+
+
+
+
+
 
 const API_URL = 'http://localhost:8081/SpringMVC/api/test/';
 
@@ -11,16 +19,14 @@ const API_URL = 'http://localhost:8081/SpringMVC/api/test/';
 })
 export class UserService {
 
-  private baseURL = "http://localhost:8081/SpringMVC/api/v1/users";
-
-  private baseURL7 = environment.api_url + "api/v1/usersFA";
-
-  private baseRDV = "http://localhost:8081/SpringMVC/api/v1/DeleteRDV"
-  private baseRDVUpdate = "http://localhost:8081/SpringMVC/api/v1/RDVs"
-  private baseURLIMG = "http://localhost:8081/SpringMVC/api/v1/users/SetImage";
-
-  constructor(private http: HttpClient) {
-  }
+  
+private baseURL = "http://localhost:8081/SpringMVC/api/v1/users";
+private baseRDV ="http://localhost:8081/SpringMVC/api/v1/DeleteRDV"
+private baseRDVUpdate ="http://localhost:8081/SpringMVC/api/v1/RDVs"
+private baseURLIMG = "http://localhost:8081/SpringMVC/api/v1/users/SetImage";
+private baseURLRDV="http://localhost:8081/SpringMVC/api/v1/RDVs"
+private baseURL7 = environment.api_url + "api/v1/usersFA";
+  constructor(private http: HttpClient) { }
 
   getPublicContent(): Observable<any> {
     return this.http.get(API_URL + 'all', {responseType: 'text'});
@@ -62,8 +68,16 @@ export class UserService {
     return this.http.put(`${this.UpdateRDV}/${id}`, daterdv);
   }
 
+
+  SaveRDV(data: rdvs,idAnnonce:any,idUser:any): Observable<Object> {
+    return this.http.post(`${this.baseURLRDV}/${idAnnonce}/${idUser}`, data);
+
+  }
+
+
   getUserById(userid: number): Observable<User> {
     return this.http.get<User>('http://localhost:8081/SpringMVC/api/v1/usersid/' + userid);
   }
+
 
 }

@@ -110,8 +110,10 @@
 
           <div class=" form-group col-md-12">
             <button type="submit" class="btn btn-b">S'inscrire</button><br>
-          </div>
-          <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+
+          </div> 
+          <div class="alert alert-danger" *ngIf="f.submitted && isSignUpFailed">
+
             Signup failed!<br />{{ errorMessage }}
           </div>
         </div>

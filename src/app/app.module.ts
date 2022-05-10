@@ -53,7 +53,11 @@ import { AnnonceDetailsComponent } from './components/annonce-details/annonce-de
 import { AddAnnonceComponent } from './components/add-annonce/add-annonce.component';
 import { AnnonceListComponent } from './components/annonce-list/annonce-list.component';
 import { AffecterCouponComponent } from './components/affecter-coupon/affecter-coupon.component';
+
+import { RendezVousComponent } from './rendez-vous/rendez-vous.component';
+
 import { CoorndonneesComponent } from './components/coorndonnees/coorndonnees.component';
+
 
 import { ShowReactionCommentaireComponent } from './reactionCommentaire/show-reaction-commentaire/show-reaction-commentaire.component';
 
@@ -84,6 +88,12 @@ import { ShowReactionCommentaireComponent } from './reactionCommentaire/show-rea
     AddAnnonceComponent,
     AfficheAnnonceComponent,
     UpdateAnnonceComponent,
+
+    
+    
+          RendezVousComponent,
+    
+
     AffecterCouponComponent,
     CoorndonneesComponent,
     UpdateSujetComponent,
@@ -103,6 +113,7 @@ import { ShowReactionCommentaireComponent } from './reactionCommentaire/show-rea
     ProfileComponent,
     BoardAdminComponent,
     ShowReactionCommentaireComponent,
+
 
   ],
   imports: [

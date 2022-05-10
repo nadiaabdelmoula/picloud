@@ -3,8 +3,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbCarousel, NgbModal, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 import { Annonce } from 'src/app/model/annonce';
 import { AnnonceFetch } from 'src/app/model/annonce-fetch';
+
+import { RendezVousComponent } from 'src/app/rendez-vous/rendez-vous.component';
+
 import { Coupon } from 'src/app/model/coupon';
 import { User } from 'src/app/models/user';
+
 import { AnnonceService } from 'src/app/service/annonce.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { UserService } from 'src/app/_services/user.service';
@@ -172,4 +176,18 @@ getAnnonceUser(idannonce:any){
   });
 }
 
+PrendreRDV(idannonce:number,localisation:any){
+  const ref= this.modaleservice.open(RendezVousComponent,{ centered: true });
+  ref.componentInstance.idannonce = idannonce;
+  ref.componentInstance.localisation=localisation;
+
+  ref.result.then((yes)=>{
+    console.log("ok click");
+    
+  },
+  (cancel)=>{
+console.log("Cancel click");
+
+  })
+}
 }

@@ -3,12 +3,18 @@
 
 
   <!--/ Intro Single star /-->
+  
   <div class="col-md-12 section-t8" style="padding-left: 130px;">
     <div class="title-box-d">
       <h3 class="title-d">{{annonce.titre}}</h3>
+      
+    
     </div>
+    
   </div>
   <div class="col-md-10 offset-md-1">
+    
+  <button id="RDV" class="btn btn-primary"  (click)="PrendreRDV(annonce.id,annonce.localisation)"><i class="fa fa-calendar" aria-hidden="true"></i> prenre un rendez vous</button>
     <ngb-carousel #carousel [interval]="10000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
       <ng-template ngbSlide *ngFor="let img of annonce.imageVideo; index as i">
         
