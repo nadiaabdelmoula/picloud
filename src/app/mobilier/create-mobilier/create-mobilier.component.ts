@@ -4,6 +4,7 @@ import {MatDialogRef} from "@angular/material/dialog";
 import {Mobilier} from "../model/mobilier";
 import {MobilierService} from "../services/mobilier.service";
 import {ImageVideo} from "../../shared/model/imageVideo";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-mobilier',
@@ -15,9 +16,11 @@ export class CreateMobilierComponent implements OnInit {
   mobilier: Mobilier = new Mobilier();
   image: string = '';
    imageSrc : ImageVideo[] = [];
+   created:any=false;
   constructor(
     private service: MobilierService,
-    private dialogRef: MatDialogRef<CreateMobilierComponent>
+    private dialogRef: MatDialogRef<CreateMobilierComponent>,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -29,14 +32,15 @@ export class CreateMobilierComponent implements OnInit {
     this.mobilier.vendeur = JSON.parse(localStorage.getItem('auth-user'));
     // @ts-ignore
     this.mobilier.vendeur.roles = [];
-    this.service.save(this.mobilier).subscribe(data => this.dialogRef.close())
+   this.service.save(this.mobilier).subscribe( r =>  this.created=true)
+
+    //this.service.save(this.mobilier).subscribe(data => this.dialogRef.close())
   }
+
 
   imageLoad(e: any) {
     var reader ;
-
     for (let i = 0; i < e.target.files.length; i++) {
-
 
     var file = e.dataTransfer ? e.dataTransfer.files[i] : e.target.files[i];
     var pattern = /image-*/;
@@ -54,7 +58,16 @@ export class CreateMobilierComponent implements OnInit {
       };
     reader.readAsDataURL(file);
   }
+  }
 
+
+  closeMobilier (){
+    this.dialogRef.close()
+  }
+
+  closeProfile (){
+    this.dialogRef.close()
+    this.router.navigate(['/profile'])
 
   }
 

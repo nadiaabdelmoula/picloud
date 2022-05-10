@@ -1,4 +1,4 @@
-
+<div *ngIf="!created" style="width: 400px;height:440px;padding-left: 100px;padding-top: 50px">
 <h1 mat-dialog-title>Ajouter un mobilier</h1>
 <div mat-dialog-content>
   <mat-form-field appearance="outline">
@@ -32,12 +32,31 @@
     <span matSuffix>.00</span>
   </mat-form-field>
   <input type="file" #img accept="image/*" multiple hidden (change)="imageLoad($event)" >
-  <button class="btn-primary btn " (click)="img.click()" >upload image</button>
+  <button style="background-color: #2eca6a" class="btn-primary btn " (click)="img.click()" >upload image</button>
 
 
 </div>
 <div mat-dialog-actions align="end">
   <button mat-raised-button mat-dialog-close >No Thanks</button>
-  <button mat-flat-button (click)="add()">Ok</button>
+  <button style="background-color: #2eca6a" mat-flat-button (click)="add()">Ok</button>
 
 </div>
+</div>
+<div *ngIf="created">
+
+    <img style="padding-right: 0px;" src="assets/img/creer.png" alt="">
+    <h1 style="padding-left: 80px;padding-top: 40px;padding-bottom: 30px"> Votre mobiler a ete creer !</h1>
+
+    <div style="padding-left: 0px;">
+      <div class="card" style="width: 28rem;">
+
+        <ul class="list-group list-group-flush">
+
+          <li class="list-group-item" (click)="closeProfile()">Voir mon profile et mes mobiliers <i style="color: #2eca6a; padding-left: 175px; " class="fa fa-arrow-right" aria-hidden="true"></i> </li>
+          <li class="list-group-item"  (click)="closeMobilier()">Voir tout les mobiliers <i style="color: #2eca6a; padding-left: 243px;" class="fa fa-arrow-right" aria-hidden="true"></i></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+

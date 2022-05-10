@@ -37,7 +37,8 @@ export class ListMobilierComponent implements OnInit {
 
   openAddDialog() {
     const dialogRef = this.dialog.open(CreateMobilierComponent, {
-      width: '400px'
+      width: '500px',
+      height: '600px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
