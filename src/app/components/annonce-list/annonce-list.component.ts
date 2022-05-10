@@ -60,4 +60,6 @@ export class AnnonceListComponent implements OnInit {
       this.annoncecoupon.forEach(m => m.imageVideo?.length > 0 ?  m.placeholder = m.imageVideo[0].image: m.placeholder = '/assets/img/property-1.jpg')
     });
   }
+
+  
 }

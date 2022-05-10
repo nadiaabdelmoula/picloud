@@ -1,5 +1,6 @@
 import { ImageVideo } from "../models/ImageVideo";
 import { User } from "../models/user";
+import { Coupon } from "./coupon";
 
 
 export class Annonce {
@@ -15,5 +16,6 @@ export class Annonce {
   user: User;
   imageVideo:ImageVideo[];
   placeholder:String;
+  coupon:Coupon;
 
 }

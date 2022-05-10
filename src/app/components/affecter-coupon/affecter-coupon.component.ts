@@ -13,6 +13,8 @@ export class AffecterCouponComponent implements OnInit {
   code:any;
   coupon:Coupon;
   idannonce:number;
+  etat:any;
+  erreur:string;
   
   constructor(public modal: NgbActiveModal,public annonceservice:AnnonceService) { }
 
@@ -20,10 +22,18 @@ export class AffecterCouponComponent implements OnInit {
   }
 
   onsubmit(){
+    this.annonceservice.CheckEtatCoupon(this.code).subscribe(data => {
+      this.etat=data;
+      console.log(this.etat);
+      if(this.etat!=0)
     this.annonceservice.affecterCoupon(this.idannonce,this.code).subscribe(data => {
       
       this.modal.close('Yes');
    
     })
+    else this.erreur="Coupon Utilisé ! "
+      
+    })
+    
   }
 }

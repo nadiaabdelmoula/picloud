@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/models/user';
 import { AnnonceService } from 'src/app/service/annonce.service';
 import { UserService } from 'src/app/_services/user.service';
@@ -12,7 +13,7 @@ export class CoorndonneesComponent implements OnInit {
   idannonce:number;
   user=new User();
   userid:any;
-  constructor(private annonceService:AnnonceService,private userservice:UserService) { }
+  constructor(private annonceService:AnnonceService,private userservice:UserService,private modaleservice:NgbActiveModal) { }
 
   ngOnInit(): void {
     //this.userid=2;
@@ -26,6 +27,9 @@ export class CoorndonneesComponent implements OnInit {
       })
     });
 
+  }
+  close(){
+   this.modaleservice.close('Yes');
   }
 
 }
