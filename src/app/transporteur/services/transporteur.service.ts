@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {Transporteur} from "../module/transporteur";
 import {Observable} from "rxjs";
 import {Demenagement} from "../../demenagement/module/demenagement";
+import {Calendar} from "../../calendar/modalCalendar/calendar";
 
 
 @Injectable({
@@ -27,7 +28,9 @@ export class TransporteurService {
   public deletetransporteur(idTransporteur: any) {
     return this.http.delete(this.api_url + '/remove-transporteur/' + idTransporteur)
   }
-
+  public getOnetransporteur(idTransporteur:any) :Observable<Transporteur>{
+    return this.http.get<Transporteur>(this.api_url+'/retrieve-transporteur' +idTransporteur);
+  }
   public updatetransporteur(transporteur: Transporteur) {
     return this.http.put(this.api_url + '/modify-transporteur', transporteur)
   }
@@ -46,5 +49,10 @@ export class TransporteurService {
 
   public affecterTransporteurToDemenagement(demenagement: Demenagement, idTransporteur: Transporteur) {
     return this.http.put(this.api_url + '/assignDemenagementToTransporteur/' +idTransporteur, demenagement)
+  }
+
+
+  public assignTransporteurtToCalendar(calendar: Calendar, idTransporteur: Transporteur) {
+    return this.http.put(this.api_url + '/assignTransporteurtToCalendar/' +idTransporteur, calendar)
   }
 }

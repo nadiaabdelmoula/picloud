@@ -3,6 +3,7 @@ import {Transporteur} from "../module/transporteur";
 import {TransporteurService} from "../services/transporteur.service";
 import {Router} from "@angular/router";
 import {NgToastService} from "ng-angular-popup";
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-create-transporteur',
@@ -12,17 +13,17 @@ import {NgToastService} from "ng-angular-popup";
 export class CreateTransporteurComponent implements OnInit {
 
   listTransporteur: any;
-  form:boolean=false;
-  transporteur!:Transporteur;
+  form: boolean = false;
+  transporteur!: Transporteur;
   closeResult!: string;
-
-  constructor(private transporteurservice:TransporteurService, private router: Router,  private toast: NgToastService) {}
+  constructor(private transporteurservice: TransporteurService, private router: Router, private toast: NgToastService) {
+  }
 
   ngOnInit(): void {
     this.getAllTransporteur()
-    this.transporteur={
+    this.transporteur = {
 
-     idTransporteur: null,
+      idTransporteur: null,
       nom: null,
       prenom: null,
       num: null,
@@ -31,18 +32,20 @@ export class CreateTransporteurComponent implements OnInit {
     }
   }
 
-  getAllTransporteur(){
-    this.transporteurservice.getAlltransporteur().subscribe(res=>this.listTransporteur=res)
+  getAllTransporteur() {
+    this.transporteurservice.getAlltransporteur().subscribe(res => this.listTransporteur = res)
 
   }
-  addtransporteur(t: any){
-    this.transporteurservice.addtransporteur(t).subscribe(()=>{
+
+  addtransporteur(t: any) {
+
+    this.transporteurservice.addtransporteur(t).subscribe(() => {
       this.getAllTransporteur();
-      this.form=false;
-      this.toast.success({detail:"SUCCESS",summary:'transporteur est ajouté',duration:5000});
+
+      this.form = false;
+      this.toast.success({detail: "SUCCESS", summary: 'transporteur est ajouté', duration: 5000});
       this.router.navigate(['/affiche']);
     })
-
 
   }
 

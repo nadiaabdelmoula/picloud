@@ -5,6 +5,8 @@ import {CreateTransporteurComponent} from "./transporteur/create-transporteur/cr
 import {ListTransporteurComponent} from "./transporteur/list-transporteur/list-transporteur.component";
 import {UpdateTransporteurComponent} from "./transporteur/update-transporteur/update-transporteur.component";
 import {CreateDemenagementComponent} from "./demenagement/create-demenagement/create-demenagement.component";
+import {ListDemenagementComponent} from "./demenagement/list-demenagement/list-demenagement.component";
+import {FrontTransporteurComponent} from "./transporteur/front-transporteur/front-transporteur.component";
 
 
 const routes: Routes = [
@@ -24,7 +26,15 @@ const routes: Routes = [
   {
     path:'ajout',
     component:CreateDemenagementComponent
-  }
+  },
+  {
+    path: 'affiche1',
+    component: ListDemenagementComponent
+  },
+  {
+    path: 'front',
+    component:FrontTransporteurComponent
+  },
 
 
 

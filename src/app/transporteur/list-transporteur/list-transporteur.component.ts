@@ -4,6 +4,8 @@ import {Router} from "@angular/router";
 import {Transporteur} from "../module/transporteur";
 import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgToastService} from "ng-angular-popup";
+import {CalendarServiceService} from "../../calendar/calendar-service.service";
+import {Calendar} from "../../calendar/modalCalendar/calendar";
 
 @Component({
   selector: 'app-list-transporteur',
@@ -17,17 +19,17 @@ export class ListTransporteurComponent implements OnInit {
   transporteur!: Transporteur;
   closeResult!: string;
   SearchVal: string = '';
+  listevent2 : Calendar[];
 
 
-  constructor(private transporteurservice: TransporteurService, private modalService: NgbModal, private router: Router,  private toast: NgToastService) {
+  constructor(private calendarService : CalendarServiceService,private transporteurservice: TransporteurService, private modalService: NgbModal, private router: Router,  private toast: NgToastService) {
   }
 
+  c:boolean = false;
   ngOnInit(): void {
 
     this.getAllTransporteur()
     this.transporteur = {
-
-
       idTransporteur: null,
       nom: null,
       prenom: null,
@@ -35,6 +37,17 @@ export class ListTransporteurComponent implements OnInit {
       cin: null,
       etat: null
     }
+    this.getevent();
+    setTimeout(()=>{
+  console.log(this.listevent2);
+      this.c=true;
+    },1000)
+  }
+
+  getevent(){
+    this.calendarService.getAllcalendar().subscribe((data : Calendar[])=>{this.listevent2 = data;
+      console.log(this.listevent2);
+    });
   }
 
   getAllTransporteur() {
@@ -43,13 +56,18 @@ export class ListTransporteurComponent implements OnInit {
   }
 
   deletetranporteur(idTransporteur: any) {
-    this.transporteurservice.deletetransporteur(idTransporteur).subscribe(() => this.getAllTransporteur())
-    this.toast.info({detail:"INFO",summary:'transporteur est effacé',sticky:true});
+    let conf=confirm("Etes-vous de supprimer ce transporteur?")
+    if (conf) {
+      this.transporteurservice.deletetransporteur(idTransporteur).subscribe(() => this.getAllTransporteur())
+      this.toast.info({detail: "INFO", summary: 'transporteur est effacé', sticky: true});
+    }
   }
 
   updatetransporteur(transporteur: Transporteur) {
     this.transporteurservice.updatetransporteur(transporteur).subscribe();
+    this.router.navigate(['/affiche']);
   }
+
   Search() {
     if (this.SearchVal === '') {
       this.getAllTransporteur();

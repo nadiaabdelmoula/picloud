@@ -1,0 +1,47 @@
+<section class="intro-single" xmlns="http://www.w3.org/1999/html">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">Nos Transporteurs</h1>
+          <span class="color-text-a">tout les transporteur</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="property-grid grid">
+
+
+
+  <div class="container">
+    <div class="row">
+
+
+
+
+      <div class="col-md-4" *ngFor='let t of listTransporteur'>
+        <div class="card-box-a card-shadow">
+          <div class="img-box-a" style="height: 400px; width: 300px" >
+            <img [src]=" "  height="400" width="300" alt="" >
+          </div>
+          <div class="card-overlay">
+            <div class="card-overlay-a-content">
+              <div class="card-header-a">
+                <h2 class="card-title-a">
+                  <a href="#">{{t.nom}}
+                    <br /> {{t.prenom}}
+                    <br /> {{t.num}}
+                    <br /> {{t.etat}}
+                  </a>
+                </h2>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

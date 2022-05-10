@@ -20,7 +20,6 @@ export class UpdateTransporteurComponent implements OnInit {
   ngOnInit(): void {
     this.getAllTransporteur()
     this.transporteur={
-
       idTransporteur: null,
       nom: null,
       prenom: null,

@@ -39,10 +39,12 @@
                 </div>
                 <div>
                   <select [(ngModel)]="idt" [ngModelOptions]="{standalone:true}">
-                    <option   *ngFor='let transporteur of listTransporteur' value="{{transporteur.idTransporteur}}">
+                    <ng-container *ngFor='let transporteur of listTransporteur' >
+                    <option   *ngIf="transporteur.etat==='DISPONIBLE'"  value="{{transporteur.idTransporteur}}">
                       {{transporteur.nom}}
 
                     </option>
+                    </ng-container>
                   </select>
 
 

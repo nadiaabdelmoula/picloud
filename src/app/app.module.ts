@@ -24,6 +24,8 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { CreateEventComponent } from './calendar/create-event/create-event.component';
 import { AfficheEventComponent } from './calendar/affiche-event/affiche-event.component';
 import { CreateDemenagementComponent } from './demenagement/create-demenagement/create-demenagement.component';
+import { ListDemenagementComponent } from './demenagement/list-demenagement/list-demenagement.component';
+import { FrontTransporteurComponent } from './transporteur/front-transporteur/front-transporteur.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -41,7 +43,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     UpdateTransporteurComponent,
     CreateEventComponent,
     AfficheEventComponent,
-    CreateDemenagementComponent
+    CreateDemenagementComponent,
+    ListDemenagementComponent,
+    FrontTransporteurComponent
   ],
   imports: [
     BrowserModule,

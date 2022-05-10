@@ -5,6 +5,8 @@ import {Router} from "@angular/router";
 import {NgToastService} from "ng-angular-popup";
 import {TransporteurService} from "../../transporteur/services/transporteur.service";
 import {Transporteur} from "../../transporteur/module/transporteur";
+import {CalendarServiceService} from "../../calendar/calendar-service.service";
+import {Calendar} from "../../calendar/modalCalendar/calendar";
 
 @Component({
   selector: 'app-create-demenagement',
@@ -17,12 +19,14 @@ export class CreateDemenagementComponent implements OnInit {
   form: boolean = false;
   idt: any;
   demenagement!: Demenagement;
+  calender : Calendar;
 
 
-  constructor(private transporteurservice: TransporteurService,private demenagementservice: DemenagementService, private router: Router, private toast: NgToastService) {
+  constructor(private  calendarService : CalendarServiceService,private transporteurservice: TransporteurService,private demenagementservice: DemenagementService, private router: Router, private toast: NgToastService) {
   }
 
   ngOnInit(): void {
+    this.calender = new Calendar();
     this.getAllTransporteur();
     this.getAlldemenagement();
     this.demenagement = {
@@ -63,7 +67,15 @@ export class CreateDemenagementComponent implements OnInit {
       this.form = false;
       this.toast.success({detail: "SUCCESS", summary: 'demenagement est ajouté', duration: 5000});
     })
+    this.calender.title=d.villeArrive +" "+ d.villeDepart;
+    this.calender.start=d.dateDemenagement;
+    this.calendarService.addcalendar(this.calender).subscribe(data=>Calendar);
+    this.transporteurservice.assignTransporteurtToCalendar(this.calender,idTransporteur).subscribe();
+
+
   }
+
+
 
 
 }
