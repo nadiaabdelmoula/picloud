@@ -4,7 +4,6 @@
   "newProjectRoot": "projects",
   "projects": {
     "cloudpi": {
-
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -43,6 +42,8 @@
             ],
             "scripts": [
               "src/assets/lib/bootstrap/js/bootstrap.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "src/assets/lib/easing/easing.js",
               "src/assets/lib/jquery/jquery.min.js",
               "src/assets/lib/jquery/jquery-migrate.min.js",
@@ -50,10 +51,7 @@
               "src/assets/lib/popper/popper.min.js",
               "src/assets/lib/scrollreveal/scrollreveal.js",
               "src/assets/js/main.js"
-
-
             ]
-
           },
           "configurations": {
             "production": {
@@ -61,7 +59,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -118,7 +116,6 @@
               "src/assets"
             ],
             "styles": [
-
             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
             "src/styles.css",
               "src/assets/lib/animate/animate.css",
@@ -128,9 +125,7 @@
               "src/assets/lib/owlcarousel/assets/owl.carousel.css",
               "src/assets/lib/owlcarousel/assets/owl.theme.default.css",
               "src/assets/lib/owlcarousel/assets/owl.theme.green.css",
-              "src/assets/css/style.css"
-            ],
-            "scripts": [
+              "src/assets/css/style.css",
               "src/assets/lib/bootstrap/js/bootstrap.js",
               "src/assets/lib/easing/easing.js",
               "src/assets/lib/jquery/jquery.min.js",
@@ -138,10 +133,10 @@
               "src/assets/lib/owlcarousel/owl.carousel.js",
               "src/assets/lib/popper/popper.min.js",
               "src/assets/lib/scrollreveal/scrollreveal.js",
-              "src/assets/js/main.js"
-
-
-            ]
+              "src/assets/js/main.js",
+              "src/styles.css"
+            ],
+            "scripts": []
           }
         }
       }

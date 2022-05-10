@@ -3,6 +3,7 @@ import {User} from "../models/user";
 import { TokenStorageService } from '../_services/token-storage.service';
 import {Router} from "@angular/router";
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -22,7 +23,6 @@ export class NavbarComponent implements OnInit {
 
     if (this.isLoggedIn) {
 
-
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
@@ -31,11 +31,12 @@ export class NavbarComponent implements OnInit {
       if(user.roles.indexOf('ROLE_ADMIN') >= 0){
         this.router.navigateByUrl('/dashboard');
       }
+      console.log(user.image);
+
 
     }
 
   }
-
   logout(): void {
     this.tokenStorageService.signOut();
     window.location.reload();

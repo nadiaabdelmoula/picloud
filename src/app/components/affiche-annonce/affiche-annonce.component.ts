@@ -12,6 +12,7 @@ export class AfficheAnnonceComponent implements OnInit {
   annonces: Annonce[];
   p: number = 1;
   localisation: any;
+  //test 
 
   constructor(private annonceservice: AnnonceService, private router: Router) { }
 

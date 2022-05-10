@@ -18,6 +18,13 @@ import {AddAnnonceComponent} from "./components/add-annonce/add-annonce.componen
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {AdminNavComponent} from "./admin-nav/admin-nav.component";
 import {AdminUserHandlerComponent} from "./admin-user-handler/admin-user-handler.component";
+import { CommonModule } from '@angular/common';
+import { UpdateSujetComponent } from './sujet/update-sujet/update-sujet.component';
+import { ListSujetComponent } from './sujet/list-sujet/list-sujet.component';
+import { CreateSujetComponent } from './sujet/create-sujet/create-sujet.component';
+import { ShowSujetComponent } from './sujet/show-sujet/show-sujet.component';
+
+
 
 const routes: Routes = [
 
@@ -58,6 +65,9 @@ const routes: Routes = [
       { path: 'add', component: AddAnnonceComponent },
       { path: 'affiche', component: AfficheAnnonceComponent },
       { path: 'update/:id', component: UpdateAnnonceComponent },
+                 {path:'forum',component:ListSujetComponent},
+  {path:'forum/new',component:CreateSujetComponent},
+  {path:'forum/show/:id',component:ShowSujetComponent},
     ]
   },
   { path: 'dashboard', component: AdminNavComponent, children: [
@@ -71,8 +81,8 @@ const routes: Routes = [
       }
     ] },
 
-];
 
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
