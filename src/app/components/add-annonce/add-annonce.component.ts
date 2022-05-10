@@ -5,7 +5,11 @@ import { Annonce } from 'src/app/model/annonce';
 import { AnnonceService } from 'src/app/service/annonce.service';
 import { FileUploadService } from 'src/app/service/file-upload.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { ImageVideo } from 'src/app/model/ImageVideo';
+import { ImageVideo } from 'src/app/models/ImageVideo';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import { User } from 'src/app/models/user';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AffecterCouponComponent } from '../affecter-coupon/affecter-coupon.component';
 
 @Component({
   selector: 'app-add-annonce',
@@ -17,36 +21,49 @@ export class AddAnnonceComponent implements OnInit {
   progressInfos: any[] = [];
   message: string[] = [];
   isSuccessful=false;
+  errorMessage='';
 
   previews: string[] = [];
   imageInfos?: Observable<any>;
  // IMAGEVIDEO
   image: string = '';
   imageSrc : ImageVideo[] = [];
-  
+  currentuser:User;
+
+
 
     annonce: Annonce = new Annonce();
-    constructor(private annonceService: AnnonceService,private router: Router, 
-    private uploadService: FileUploadService) { }
-  
+    constructor(private annonceService: AnnonceService,private modaleservice:NgbModal,private router: Router,
+    private uploadService: FileUploadService,private token: TokenStorageService) { }
+
     ngOnInit(): void {
       console.log(this.isSuccessful + "on init ");
+      this.currentuser=this.token.getUser();
+
     }
-    
-  
+
+
     save(){
       this.annonce.imageVideo = this.imageSrc;
-      this.annonceService.create(this.annonce).subscribe(data => {
-        console.log(data);
-        this.isSuccessful=true;
-      },error => console.log(error))
+      this.annonceService.create(this.annonce,this.currentuser.id).subscribe({
+        next: (data: any) => {
+          console.log(data);
+          this.annonce=data;
+          this.isSuccessful = true;
+        },
+        error: err => {
+          this.errorMessage = err.error.message;
+          this.isSuccessful = true;
+        }
+      });
     }
+
     imageLoad(e: any) {
       var reader ;
-  
+
       for (let i = 0; i < e.target.files.length; i++) {
-  
-  
+
+
       var file = e.dataTransfer ? e.dataTransfer.files[i] : e.target.files[i];
       var pattern = /image-*/;
       if (!file.type.match(pattern)) {
@@ -65,12 +82,12 @@ export class AddAnnonceComponent implements OnInit {
         }
     }
 
-    
-  
+
+
     RedirectToAnnonceList(){
-  this.router.navigate(['/affiche']);
+  this.router.navigate(['/annonces']);
     }
-  
+
     onSubmit(){
       //console.log(this.user);
       this.save();
@@ -147,5 +164,27 @@ GoLogin(){
   this.uploadFiles();
   this.RedirectToAnnonceList();
 }
+
+createNew(){
+  this.isSuccessful=false;
+}
+affecterCoupon(){
+  console.log(this.annonce.id)
+  const ref= this.modaleservice.open(AffecterCouponComponent,{ centered: true });
+  ref.componentInstance.idannonce = this.annonce.id;
+
+
+  ref.result.then((yes)=>{
+    console.log("ok click");
+    this.router.navigate(['/annonces']);
+
+  },
+  (cancel)=>{
+console.log("Cancel click");
+
+
+  })
   
+}
+
      }

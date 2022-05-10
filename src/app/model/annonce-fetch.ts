@@ -1,5 +1,6 @@
-import { ImageVideo } from "./ImageVideo";
-import { User } from "./user";
+import { ImageVideo } from "../models/ImageVideo";
+import { User } from "../models/user";
+import { Coupon } from "./coupon";
 
 export class AnnonceFetch {
     id: number ;
@@ -14,4 +15,5 @@ export class AnnonceFetch {
     user: User;
     imageVideo:ImageVideo[];
     placeholder:String
+    coupon:Coupon;
 }
