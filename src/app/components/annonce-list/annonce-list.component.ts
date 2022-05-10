@@ -12,11 +12,14 @@ export class AnnonceListComponent implements OnInit {
   annonces: Annonce[];
   p: number = 1;
   localisation: any;
+  nbannoncecoupon:any;
+  annoncecoupon:Annonce[];
 
   constructor(private annonceservice: AnnonceService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAnnonce();
+    this.getAnnonceCoupon();
 
   }
 
@@ -45,4 +48,18 @@ export class AnnonceListComponent implements OnInit {
 
   }
 
+   create(){
+    this.router.navigate(['/add']);
+
+  }
+
+  private getAnnonceCoupon(){
+    this.annonceservice.getAnnonceCoupon().subscribe(data => {
+      this.annoncecoupon = data;
+      this.nbannoncecoupon=data.length;
+      this.annoncecoupon.forEach(m => m.imageVideo?.length > 0 ?  m.placeholder = m.imageVideo[0].image: m.placeholder = '/assets/img/property-1.jpg')
+    });
+  }
+
+  
 }

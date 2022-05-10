@@ -50,19 +50,21 @@
                 </div>
                 <div class="summary-list">
                   <ul class="list">
+                    
                    
                     <li class="d-flex justify-content-between">
                       <strong>Localisation:</strong>
                       <span>{{annonce.localisation}}</span>
                     </li>
                     <li class="d-flex justify-content-between">
+                      <strong>Prix:</strong>
+                      <span>{{annonce.prix}} DT</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
                       <strong>Type d'annonce:</strong>
                       <span>{{annonce.typeAnnonce}}</span>
                     </li>
-                    <li class="d-flex justify-content-between">
-                      <strong>Status:</strong>
-                      <span></span>
-                    </li>
+                   
                     <li class="d-flex justify-content-between">
                       <strong>Surface:</strong>
                       <span>{{annonce.surface}}
@@ -74,13 +76,22 @@
                       <span>{{annonce.nbchambre}}</span>
                     </li>
                     <li class="d-flex justify-content-between">
-                      <strong> Contacter l'annonceur </strong>
-                      <div class="cal"><button  class="btn btn-primary" style="background-color:  #2eca6a ; border:#2eca6a ;"(click)="affecterCoupon(annonce.id)"> coordonnées  </button></div>
+                      <strong> Contacter l'annonceur: </strong>
+                      <div class="cal"><button  class="btn btn-primary" style="background-color:  #2eca6a ; border:#2eca6a ;"(click)="recupererCoordonees(annonce.id)"> Afficher coordonnées  </button></div>
                     </li>
                     <br>
-                    <li class="d-flex justify-content-between">
-                      <strong>Booster votre annonce</strong>
-                      <div class="cal"><button class="btn btn-primary" style="background-color:  #2eca6a ; border:#2eca6a ;" (click)="affecterCoupon(annonce.id)"> Affecter  </button></div>
+
+                    <li class="d-flex justify-content-between" *ngIf="hasCoupon && Proprietaire" >
+                      <ngb-alert type="success" style="width: 550px;" (closed)="close(alert)">
+                        <i class="fa fa-rocket" style="padding-right: 10px ;" aria-hidden="true"></i>
+                         Votre annonce est boostée
+                        
+                      </ngb-alert>
+
+                    </li>
+                    <li class="d-flex justify-content-between" *ngIf="!hasCoupon && Proprietaire">
+                      <strong>Booster votre annonce:</strong>
+                      <div class="cal"><button class="btn btn-primary" style="background-color:  #2eca6a ; border:#2eca6a ;" (click)="affecterCoupon(annonce.id)"> Ajouter un coupon  </button></div>
                     </li>
                     
                  

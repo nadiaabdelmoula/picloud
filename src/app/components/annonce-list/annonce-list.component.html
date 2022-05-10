@@ -6,17 +6,19 @@
       <div class="row">
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
-            <h1 class="title-single">Nos Annonces</h1>
+            <h1 class="title-single">Annonces Immobilier</h1>
           </div>
+          <nav class="navbar" style="padding-left: 35px;">
+            <input class="form-control" style="width: 300px;" type="text" name="localisation" [(ngModel)]="localisation" (ngModelChange)="Search()"
+            placeholder="Chercher par ville">
+          </nav>
         </div>
         <div class="col-md-12 col-lg-4">
           <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a href="#">Home</a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">
-                Properties Grid
+                <li class="breadcrumb-item active" aria-current="page">
+                <button type="button" class="btn btn-primary" (click)="create()" style="background-color:  #2eca6a ;  border:#2eca6a ;" ><i class="fa fa-plus" aria-hidden="true" ></i> Publier une annonce </button>
+          
               </li>
             </ol>
           </nav>
@@ -34,19 +36,47 @@
       
     }
   </style>
-  <section class="property-grid grid">
+  <div style="width: 90%; margin-left: 80px; background-color: #b9ebcc;border-radius: 2% ; height: 380px;">
+    <br>
+  <span style="margin-left: 40px; font-size: 20px; font-weight: 600; background-color:#2eca6a ;" class="badge badge-pill badge-primary">A la une <i style="padding-left: 5px;" class="fa fa-star" aria-hidden="true"></i></span>
+   <section style=" width: 100%; margin-left:0px ;" class="product" *ngIf="nbannoncecoupon !=0" > 
+
+
+       
+    <button class="pre-btn" style="opacity: 0;"><img src="assets/img/fleche.png" alt=""></button>
+    <button style="opacity: 0;" class="nxt-btn"><img src="assets/img/fleche.png" alt=""></button>
+    <div style="padding-left: 25px;" class="product-container" >        
+       
+     
+  <div class="product-card" *ngFor="let a of annoncecoupon" >
+    <div style="height: 250px; border-radius: 5%; border: 3px solid white;" class="product-image">
+    
+        <img [src]="a.placeholder" class="product-thumb" alt="">
+        <button class="card-btn"  [routerLink]="['/annonces',a.id]"> Voir annonce </button>
+    </div>
+    <div class="product-info">
+        <h3 class="product-brand">{{a.titre}}</h3>
+      
+    </div>
+</div>
+        
+    </div>
+</section>
+
+</div>
+<br>
+<hr style="width:80%; margin-left: 140px; border: 2px solid grey;">
+  <section style="margin-left:20px ;" class="property-grid grid">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
           <div class="grid-option">
-            <nav class="navbar">
-              <input class="form-control" style="width: 300px;" type="text" name="localisation" [(ngModel)]="localisation" (ngModelChange)="Search()"
-              placeholder="Chercher par ville">
-            </nav>
+           
+            
           </div>
         </div>
         
-    
+       
        
         
        
@@ -73,30 +103,23 @@
                   <div class="price-box d-flex">
                     <span class="price-a">Prix |  {{ annonce.prix }} DT </span>
                   </div>
-                  <a  (click)="detailAnnonce(annonce.id)" class="link-a">Click here to view
+                  <a  (click)="detailAnnonce(annonce.id)" class="link-a">Cliquer ici pour voir
                     <span class="ion-ios-arrow-forward"></span>
                   </a>
                 </div>
                 <div class="card-footer-a">
                   <ul class="card-info d-flex justify-content-around">
                     <li>
-                      <h4 class="card-info-title">Surface</h4>
+                      <h5 class="card-info-title">Surperficie</h5>
                       <span>{{annonce.surface}}
                         <sup>2</sup>
                       </span>
                     </li>
                     <li>
-                      <h4 class="card-info-title">Chambres</h4>
+                      <h5 class="card-info-title">Chambres</h5>
                       <span>{{annonce.nbchambre}}</span>
                     </li>
-                    <li>
-                      <h4 class="card-info-title">Baths</h4>
-                      <span>4</span>
-                    </li>
-                    <li>
-                      <h4 class="card-info-title">Etage</h4>
-                      <span>1</span>
-                    </li>
+          
                   </ul>
                 </div>
               </div>
@@ -112,7 +135,26 @@
     </div>
 
   </section>
+  <script>
+    
+    const productContainers = [...document.querySelectorAll('.product-container')];
+const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+const preBtn = [...document.querySelectorAll('.pre-btn')];
+
+productContainers.forEach((item, i) => {
+    let containerDimensions = item.getBoundingClientRect();
+    let containerWidth = containerDimensions.width;
+
+    nxtBtn[i].addEventListener('click', () => {
+        item.scrollLeft += containerWidth;
+    })
+
+    preBtn[i].addEventListener('click', () => {
+        item.scrollLeft -= containerWidth;
+    })
+})
+  </script>
   <!--/ Property Grid End /-->
 
   <!--/ footer Star /-->
-  
+  <!--stylesheet------------->

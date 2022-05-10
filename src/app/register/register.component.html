@@ -3,9 +3,7 @@
     <div class="title-box-d"  >
       <h3 class="title-d" >Inscription </h3>
     </div>
-    
-    
-      <form class="form-a" 
+      <form class="form-a"
       name="form"
       (ngSubmit)="f.form.valid && onSubmit()"
       #f="ngForm"
@@ -15,7 +13,7 @@
             <div class="form-group">
               <i class="fa fa-user" style="padding-left: 5px;padding-right: 10px;"></i>
               <label for="Type">username</label>
-              <input type="text" class="form-control form-control-lg form-control-a" 
+              <input type="text" class="form-control form-control-lg form-control-a"
               placeholder="Keyword"
               name="username"
               [(ngModel)]="user.username"
@@ -35,13 +33,13 @@
               </div>
             </div>
           </div>
-         
-         
+
+
           <div class="col-md-10 mb-2">
             <div class="form-group">
               <i class="fa fa-envelope" style="padding-left: 5px;padding-right: 10px;"></i>
               <label for="Type">email</label>
-              <input type="email" class="form-control form-control-lg form-control-a" 
+              <input type="email" class="form-control form-control-lg form-control-a"
               placeholder="Keyword"
               name="email"
           [(ngModel)]="user.email"
@@ -60,10 +58,9 @@
 
           <div class="col-md-10 mb-2">
             <div class="form-group">
-              
               <i class="fa fa-phone" style="padding-left: 5px;padding-right: 10px;"></i>
               <label for="Type">Telephone</label>
-              <input type="phone" class="form-control form-control-lg form-control-a" 
+              <input type="phone" class="form-control form-control-lg form-control-a"
               placeholder="Keyword"
               name="telephone"
           [(ngModel)]="user.telephone"
@@ -74,7 +71,7 @@
         />
         <div class="alert-danger" *ngIf="telephone.errors && f.submitted">
           <div *ngIf="telephone.errors['required']">telephone is required</div>
-          
+
           <div *ngIf="telephone.errors['maxlength']">
             phone number must be 8 characters
           </div>
@@ -84,13 +81,12 @@
         </div>
             </div>
           </div>
-       
+
           <div class="col-md-10 mb-3">
             <div class="form-group">
-              
               <i class="fa fa-key" style="padding-left: 5px;padding-right: 10px;"></i>
               <label for="Type">Mot de passe</label>
-              <input type="password" class="form-control form-control-lg form-control-a" 
+              <input type="password" class="form-control form-control-lg form-control-a"
               placeholder="Keyword"
                         name="password"
                     [(ngModel)]="user.password"
@@ -107,42 +103,44 @@
                       </div>
             </div>
           </div>
-         
-          
-         
-          
-          
+
+
+
+
+
           <div class=" form-group col-md-12">
             <button type="submit" class="btn btn-b">S'inscrire</button><br>
+
           </div> 
           <div class="alert alert-danger" *ngIf="f.submitted && isSignUpFailed">
+
             Signup failed!<br />{{ errorMessage }}
           </div>
         </div>
       </form>
-     
-    
+
+
     </div>
     <div  *ngIf="isSuccessful">
-      
+
       <div class="row" >
       <div class="col-4">
         <img style="padding-left: 50px;padding-bottom: 100px; " src="assets/img/registred.png" alt="">
-     
+
       </div>
       <div class="col-8" style="font-size: 26px;">
-        
+
         <h1 style="padding-left: px; padding-top: 160px; font-weight: bolder;"> « Il ne faut qu’un œil au vendeur, il en faut cent à l’acheteur. »
         </h1>
         <h1 style="padding-left: 120px; padding-top: 10px; font-weight: bolder;">
           Mais avec DARI.TN <span class="cnn" routerLink="/inscri"> Connectez-vous et Laissez nous faire </span> <i style="color: #2eca6a; padding-left: 20px;" class="fa fa-arrow-right" aria-hidden="true"></i>
         </h1>
-    
-      
+
+
       </div>
-      
-    </div>  
-    
+
+    </div>
+
   </div>
 <br> <br>
 
