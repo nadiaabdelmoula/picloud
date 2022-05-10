@@ -31,7 +31,7 @@
 
   <div class=" container-fluid">
     <div class="col-12 d-flex justify-content-lg-end">
-      <button class="btn-primary btn" (click)="openAddDialog()">  Ajouter</button>
+      <button style="background-color: #2eca6a" class="btn-primary btn" (click)="openAddDialog()">  Ajouter</button>
     </div>
   </div>
 
@@ -63,7 +63,7 @@
             <div class="card-overlay-a-content">
               <div class="card-header-a">
                 <h2 class="card-title-a">
-                  <a href="#">{{mobilier.titre}}
+                  <a href="#">   {{mobilier.titre}}
                     <br /> {{mobilier.description}}</a>
                 </h2>
               </div>
@@ -78,13 +78,13 @@
                   </a>
                 </div>
                 <a *ngIf="mobilier.vendeur?.id === user.id">
-                  <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="supprimer(mobilier.id)" >
+                  <button style="background-color: #2eca6a" mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="supprimer(mobilier.id)" >
                     <mat-icon>delete</mat-icon>
                   </button>
                 </a>
 
-                <button *ngIf="mobilier.vendeur?.id === user.id" mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="openUpdateDialog(mobilier.id)" >
-                  <mat-icon>edit </mat-icon>
+                <button style="background-color: #2eca6a" *ngIf="mobilier.vendeur?.id === user.id" mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="openUpdateDialog(mobilier.id)" >
+                  <mat-icon >edit </mat-icon>
 
                 </button>
 

@@ -66,10 +66,11 @@ export class DetailMobilierComponent implements OnInit {
       this.mobilier.achteur = new User();
       this.mobilier.achteur.id = this.user.id;
       this.mobilier.status = false;
+
       // @ts-ignore
       let id = this.mobilier.vendeur.id;
-      this.mobilier.vendeur = new User();
-      this.mobilier.vendeur.id = id;
+      this.mobilier.vendeur = new User();//pour ecraser
+      this.mobilier.vendeur.id = id;//mettre juste id pas tout
       this.mobilier.dateVendu = new Date();
       this.service.update(this.mobilier).subscribe(r => this.ngOnInit());
     }

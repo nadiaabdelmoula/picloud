@@ -25,6 +25,8 @@ export class StatMobilierComponent implements OnInit {
     private service: MobilierService
   ) { }
 
+
+
   ngOnInit(): void {
     this.service.findStat().subscribe(r => {
       this.data = r;
