@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
+import { rdvs } from '../models/RDV';
 
 const API_URL = 'http://localhost:8081/SpringMVC/api/test/';
 @Injectable({
@@ -13,6 +14,7 @@ private baseURL = "http://localhost:8081/SpringMVC/api/v1/users";
 private baseRDV ="http://localhost:8081/SpringMVC/api/v1/DeleteRDV"
 private baseRDVUpdate ="http://localhost:8081/SpringMVC/api/v1/RDVs"
 private baseURLIMG = "http://localhost:8081/SpringMVC/api/v1/users/SetImage";
+private baseURLRDV="http://localhost:8081/SpringMVC/api/v1/RDVs"
   constructor(private http: HttpClient) { }
   getPublicContent(): Observable<any> {
     return this.http.get(API_URL + 'all', { responseType: 'text' });
@@ -44,6 +46,11 @@ private baseURLIMG = "http://localhost:8081/SpringMVC/api/v1/users/SetImage";
 
   UpdateRDV(id:any,daterdv:any): Observable<any> {
     return this.http.put(`${this.UpdateRDV}/${id}`, daterdv);
+  }
+
+  SaveRDV(data: rdvs,idAnnonce:any,idUser:any): Observable<Object> {
+    return this.http.post(`${this.baseURLRDV}/${idAnnonce}/${idUser}`, data);
+
   }
 
 

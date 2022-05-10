@@ -4,6 +4,7 @@ import { NgbCarousel, NgbModal, NgbSlideEvent, NgbSlideEventSource } from '@ng-b
 import { Annonce } from 'src/app/model/annonce';
 import { AnnonceFetch } from 'src/app/model/annonce-fetch';
 import { User } from 'src/app/model/user';
+import { RendezVousComponent } from 'src/app/rendez-vous/rendez-vous.component';
 import { AnnonceService } from 'src/app/service/annonce.service';
 import { AffecterCouponComponent } from '../affecter-coupon/affecter-coupon.component';
 
@@ -103,4 +104,18 @@ console.log("Cancel click");
   })
 }
 
+PrendreRDV(idannonce:number,localisation:any){
+  const ref= this.modaleservice.open(RendezVousComponent,{ centered: true });
+  ref.componentInstance.idannonce = idannonce;
+  ref.componentInstance.localisation=localisation;
+
+  ref.result.then((yes)=>{
+    console.log("ok click");
+    
+  },
+  (cancel)=>{
+console.log("Cancel click");
+
+  })
+}
 }

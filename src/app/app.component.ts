@@ -27,6 +27,8 @@ export class AppComponent {
       this.username = user.username;
 
     }
+    else this.router.navigate(['/inscri']);
+   
    
   }
   logout(): void {

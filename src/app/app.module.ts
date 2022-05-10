@@ -42,6 +42,7 @@ import { AddAnnonceComponent } from './components/add-annonce/add-annonce.compon
 import { AnnonceListComponent } from './components/annonce-list/annonce-list.component';
 
 import { AffecterCouponComponent } from './components/affecter-coupon/affecter-coupon.component';
+import { RendezVousComponent } from './rendez-vous/rendez-vous.component';
 
 
 
@@ -72,7 +73,8 @@ import { AffecterCouponComponent } from './components/affecter-coupon/affecter-c
     AfficheAnnonceComponent,
     UpdateAnnonceComponent,
     
-    AffecterCouponComponent
+    AffecterCouponComponent,
+          RendezVousComponent
     
 
   ],
