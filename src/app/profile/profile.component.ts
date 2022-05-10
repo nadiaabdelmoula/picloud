@@ -38,6 +38,7 @@ alert:String;
 console.log(this.y);
 
 
+  
     this.userService.getUserByUsername(this.currentUser.username).subscribe(data => {
       this.user = data;
       this.ListAnnonce=data.annonces;
