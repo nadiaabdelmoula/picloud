@@ -52,11 +52,22 @@ import { EditUserComponent } from './popup/edit-user/edit-user.component';
 import { AnnonceDetailsComponent } from './components/annonce-details/annonce-details.component';
 import { AddAnnonceComponent } from './components/add-annonce/add-annonce.component';
 import { AnnonceListComponent } from './components/annonce-list/annonce-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { LayoutModule } from '@angular/cdk/layout';
+import { AdminNavComponent } from './admin-nav/admin-nav.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { AdminUserHandlerComponent } from './admin-user-handler/admin-user-handler.component';
 import { AffecterCouponComponent } from './components/affecter-coupon/affecter-coupon.component';
 
 import { RendezVousComponent } from './rendez-vous/rendez-vous.component';
 
 import { CoorndonneesComponent } from './components/coorndonnees/coorndonnees.component';
+
 
 
 import { ShowReactionCommentaireComponent } from './reactionCommentaire/show-reaction-commentaire/show-reaction-commentaire.component';
@@ -88,9 +99,10 @@ import { ShowReactionCommentaireComponent } from './reactionCommentaire/show-rea
     AddAnnonceComponent,
     AfficheAnnonceComponent,
     UpdateAnnonceComponent,
+    DashboardComponent,
+    AdminNavComponent,
+    AdminUserHandlerComponent,
 
-    
-    
           RendezVousComponent,
     
 
@@ -132,8 +144,13 @@ import { ShowReactionCommentaireComponent } from './reactionCommentaire/show-rea
     NgChartsModule,
     Ng2SearchPipeModule,
     NgxPaginationModule,
-    HttpClientModule,
-    FormsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
     WebcamModule
   ],
   providers: [authInterceptorProviders],
