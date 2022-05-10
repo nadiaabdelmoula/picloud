@@ -75,5 +75,6 @@ export class DetailMobilierComponent implements OnInit {
       this.service.update(this.mobilier).subscribe(r => this.ngOnInit());
     }
 
+
   }
 }
