@@ -15,42 +15,61 @@ import {AnnonceDetailsComponent} from "./components/annonce-details/annonce-deta
 import {AfficheAnnonceComponent} from "./components/affiche-annonce/affiche-annonce.component";
 import {UpdateAnnonceComponent} from "./components/update-annonce/update-annonce.component";
 import {AddAnnonceComponent} from "./components/add-annonce/add-annonce.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
+import {AdminNavComponent} from "./admin-nav/admin-nav.component";
+import {AdminUserHandlerComponent} from "./admin-user-handler/admin-user-handler.component";
 
 const routes: Routes = [
+
   {
     path: '',
-    component: HomeComponent
-  }, {
-    path: 'reclamations',
-    component: ListReclamationComponent
-  },{
-    path: 'mobilier',
-    component: ListMobilierComponent
-  }, {
-    path: 'reclamationsAdmin',
-    component: AdminReclamationComponent
-  }, {
-  path: 'mobilier/:idm',
-    component: DetailMobilierComponent
-  }, {
-  path: "stat-mobilier",
-    component: StatMobilierComponent
+    component: AdminUserHandlerComponent,
+    children: [  {
+      path: '',
+      component: HomeComponent
+    }, {
+      path: 'reclamations',
+      component: ListReclamationComponent
+    },{
+      path: 'mobilier',
+      component: ListMobilierComponent
+    }, {
+      path: 'reclamationsAdmin',
+      component: AdminReclamationComponent
+    }, {
+      path: 'mobilier/:idm',
+      component: DetailMobilierComponent
+    }, {
+      path: "stat-mobilier",
+      component: StatMobilierComponent
+    },
+      { path: 'register',
+        component: RegisterComponent },
+      { path: 'inscri',
+        component: LoginComponent },
+      { path: 'profile',
+        component: ProfileComponent },
+      { path: 'admin',
+        component: BoardAdminComponent},
+      {path: "",
+        redirectTo: "home", pathMatch: 'full'},
+      {path: "annonces", component: AnnonceListComponent},
+      { path: 'annonces/:id', component: AnnonceDetailsComponent },
+      { path: 'add', component: AddAnnonceComponent },
+      { path: 'affiche', component: AfficheAnnonceComponent },
+      { path: 'update/:id', component: UpdateAnnonceComponent },
+    ]
   },
-  { path: 'register',
-    component: RegisterComponent },
-  { path: 'inscri',
-    component: LoginComponent },
-  { path: 'profile',
-    component: ProfileComponent },
-  { path: 'admin',
-    component: BoardAdminComponent},
-  {path: "",
-    redirectTo: "home", pathMatch: 'full'},
-  {path: "annonces", component: AnnonceListComponent},
-  { path: 'annonces/:id', component: AnnonceDetailsComponent },
-  { path: 'add', component: AddAnnonceComponent },
-  { path: 'affiche', component: AfficheAnnonceComponent },
-  { path: 'update/:id', component: UpdateAnnonceComponent },
+  { path: 'dashboard', component: AdminNavComponent, children: [
+      {
+        path: 'stat-mobilier',
+        component: StatMobilierComponent
+      },
+      {
+        path: 'reclamations',
+        component: AdminReclamationComponent
+      }
+    ] },
 
 ];
 
