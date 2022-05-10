@@ -8,6 +8,8 @@ import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { ImageVideo } from 'src/app/models/ImageVideo';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { User } from 'src/app/models/user';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AffecterCouponComponent } from '../affecter-coupon/affecter-coupon.component';
 
 @Component({
   selector: 'app-add-annonce',
@@ -19,6 +21,7 @@ export class AddAnnonceComponent implements OnInit {
   progressInfos: any[] = [];
   message: string[] = [];
   isSuccessful=false;
+  errorMessage='';
 
   previews: string[] = [];
   imageInfos?: Observable<any>;
@@ -30,7 +33,7 @@ export class AddAnnonceComponent implements OnInit {
 
 
     annonce: Annonce = new Annonce();
-    constructor(private annonceService: AnnonceService,private router: Router,
+    constructor(private annonceService: AnnonceService,private modaleservice:NgbModal,private router: Router,
     private uploadService: FileUploadService,private token: TokenStorageService) { }
 
     ngOnInit(): void {
@@ -42,11 +45,19 @@ export class AddAnnonceComponent implements OnInit {
 
     save(){
       this.annonce.imageVideo = this.imageSrc;
-      this.annonceService.create(this.annonce,this.currentuser.id).subscribe(data => {
-        console.log(data);
-        this.isSuccessful=true;
-      },error => console.log(error))
+      this.annonceService.create(this.annonce,this.currentuser.id).subscribe({
+        next: (data: any) => {
+          console.log(data);
+          this.annonce=data;
+          this.isSuccessful = true;
+        },
+        error: err => {
+          this.errorMessage = err.error.message;
+          this.isSuccessful = true;
+        }
+      });
     }
+
     imageLoad(e: any) {
       var reader ;
 
@@ -156,6 +167,24 @@ GoLogin(){
 
 createNew(){
   this.isSuccessful=false;
+}
+affecterCoupon(){
+  console.log(this.annonce.id)
+  const ref= this.modaleservice.open(AffecterCouponComponent,{ centered: true });
+  ref.componentInstance.idannonce = this.annonce.id;
+
+
+  ref.result.then((yes)=>{
+    console.log("ok click");
+    this.router.navigate(['/annonces']);
+
+  },
+  (cancel)=>{
+console.log("Cancel click");
+
+
+  })
+  
 }
 
      }

@@ -24,6 +24,10 @@ export class AnnonceService {
   private baseURL6 = environment.api_url + "api/v1/AffecterCoupon";
   private baseURL7 = environment.api_url + "api/v1/getuserfromannonce";
   private baseURL8 = environment.api_url +  "api/v1/AfficheAnnonceCoupon";
+  private baseURL9 = environment.api_url +  "api/v1/checkCoupon";
+  private baseURL10 = environment.api_url +  "api/v1/FetchAnnonce";
+  private baseURL11 = environment.api_url +  "api/v1/verifEtatCoupon";
+  
 
 
   constructor(private httpClient: HttpClient) { }
@@ -42,6 +46,11 @@ export class AnnonceService {
 
   getUpdateAnnonce(id: number): Observable<Annonce> {
     const url= `${this.baseURL2}/${id}`;
+    return this.httpClient.get<Annonce>(url, this.httpOptions);
+  }
+
+  FetchAnnonce(id: number): Observable<Annonce> {
+    const url= `${this.baseURL10}/${id}`;
     return this.httpClient.get<Annonce>(url, this.httpOptions);
   }
 
@@ -91,6 +100,14 @@ export class AnnonceService {
     return this.httpClient.get<Annonce[]>(`${this.baseURL8}`);
   }
 
+  CheckCoupon(id:number){
+    return this.httpClient.get<number>(`${this.baseURL9}/${id}`);
+
+  }
+  CheckEtatCoupon(code:string){
+    return this.httpClient.get<number>(`${this.baseURL11}/${code}`);
+
+  }
 
 }
 

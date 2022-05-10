@@ -3,8 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbCarousel, NgbModal, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 import { Annonce } from 'src/app/model/annonce';
 import { AnnonceFetch } from 'src/app/model/annonce-fetch';
+import { Coupon } from 'src/app/model/coupon';
 import { User } from 'src/app/models/user';
 import { AnnonceService } from 'src/app/service/annonce.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import { UserService } from 'src/app/_services/user.service';
 import { AffecterCouponComponent } from '../affecter-coupon/affecter-coupon.component';
 import { CoorndonneesComponent } from '../coorndonnees/coorndonnees.component';
 
@@ -15,7 +18,11 @@ import { CoorndonneesComponent } from '../coorndonnees/coorndonnees.component';
 })
 export class AnnonceDetailsComponent implements OnInit {
 
-  constructor(public route:ActivatedRoute, public router: Router,public annonceservice: AnnonceService,private modaleservice:NgbModal) {
+  constructor(public route:ActivatedRoute, public router: Router,
+    public annonceservice: AnnonceService,private modaleservice:NgbModal,
+    public userservice:UserService,
+    private token:TokenStorageService
+    ) {
     this.router.routeReuseStrategy.shouldReuseRoute = function(){
 
 
@@ -35,12 +42,20 @@ export class AnnonceDetailsComponent implements OnInit {
   nbannoncesimilaires:any;
   user:User;
   code:string;
+  couponAffecte:any;
+  hasCoupon: any;
+  userid:any;
+  annonceuser:User;
+  currentUser:any;
+  Proprietaire=false;
+
   @ViewChild('carousel', {static : true}) carousel: NgbCarousel;
 
 
   ngOnInit(){
 
 
+   
     let sub=this.route.params.subscribe(params =>{
       this.val=params['id'];
 
@@ -48,12 +63,32 @@ export class AnnonceDetailsComponent implements OnInit {
     this.annonceservice.findByID(this.val).subscribe(data => {
       this.annonce = data;
       this.user=data.user;
-
-
+      console.log(data.id);
+      
+      this.getAnnonceUser(data.id)
+      console.log("veriiif");
+      console.log(this.userid);
+      
+      
     }
+    
       )
 
       this.AnnonceSimilaires();
+      this.annonceservice.CheckCoupon(this.val).subscribe(data => {
+
+        if(data!=0) {
+          this.hasCoupon=true;
+        }
+        else
+        this.hasCoupon=false;
+
+      })
+      
+      console.log("user user hhh");
+      
+      console.log(this.annonceuser);
+      
 
 
   }
@@ -98,12 +133,15 @@ affecterCoupon(idannonce:number){
 
   ref.result.then((yes)=>{
     console.log("ok click");
+    window.location.reload();
 
   },
   (cancel)=>{
 console.log("Cancel click");
 
+
   })
+  
 }
 
 recupererCoordonees(idannonce:number){
@@ -118,6 +156,20 @@ recupererCoordonees(idannonce:number){
 console.log("Cancel click");
 
   })
+}
+
+getAnnonceUser(idannonce:any){
+  this.annonceservice.getUserByAnnonce(idannonce).subscribe(data => {
+    this.userid=data;
+    console.log("veriff2222");
+    console.log(data);
+    this.currentUser = this.token.getUser();
+    if(this.currentUser.id==data)
+    this.Proprietaire=true;
+    
+
+    
+  });
 }
 
 }
