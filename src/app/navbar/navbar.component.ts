@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../models/user";
 import { TokenStorageService } from '../_services/token-storage.service';
+import { UserService } from '../_services/user.service';
 
 
 @Component({
@@ -14,8 +15,9 @@ export class NavbarComponent implements OnInit {
   isLoggedIn = false;
   showAdminBoard = false;
   username?: string;
+  imageUser:String;
 
-  constructor(private tokenStorageService: TokenStorageService) { }
+  constructor(private tokenStorageService: TokenStorageService,private userService:UserService) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -30,6 +32,10 @@ export class NavbarComponent implements OnInit {
        
 
     }
+
+    this.userService.getUserByUsername(this.username).subscribe(data => {
+      this.imageUser=data.image
+    })
 
   }
   logout(): void {

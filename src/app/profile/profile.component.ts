@@ -4,6 +4,7 @@ import { ImageVideo } from '../models/ImageVideo';
 import {  rdvs } from '../models/RDV';
 import { User } from '../models/user';
 import { EditUserComponent } from '../popup/edit-user/edit-user.component';
+import { AnnonceService } from '../service/annonce.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { UserService } from '../_services/user.service';
 @Component({
@@ -29,7 +30,8 @@ alerts:Array<String>=[];
 alert:String;
   constructor(private token: TokenStorageService,
                 private userService: UserService,
-                private modaleservice:NgbModal) { }
+                private modaleservice:NgbModal,
+                private annonceService:AnnonceService) { }
   ngOnInit(): void {
     console.log("azeazeae");
       
@@ -38,7 +40,6 @@ alert:String;
 console.log(this.y);
 
 
-  
     this.userService.getUserByUsername(this.currentUser.username).subscribe(data => {
       this.user = data;
       this.ListAnnonce=data.annonces;
@@ -163,5 +164,15 @@ reschedule(id:any){
 }
 close(alert: any) {
   this.alerts.splice(this.alerts.indexOf(alert), 1);
+}
+
+supprimerAnnonce(idannonce:number){
+     console.log("delete");
+  if(this.annonceService.delete(idannonce).subscribe(data => {
+      
+
+   
+  }))
+  window.location.reload();
 }
 }

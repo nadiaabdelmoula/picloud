@@ -14,7 +14,7 @@
   </div>
   <div class="col-md-10 offset-md-1">
     
-  <button id="RDV" class="btn btn-primary"  (click)="PrendreRDV(annonce.id,annonce.localisation)"><i class="fa fa-calendar" aria-hidden="true"></i> prenre un rendez vous</button>
+  <button *ngIf="!Proprietaire" id="RDV" class="btn btn-primary"  (click)="PrendreRDV(annonce.id,annonce.localisation)"><i class="fa fa-calendar" aria-hidden="true"></i> prenre un rendez vous</button>
     <ngb-carousel #carousel [interval]="10000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
       <ng-template ngbSlide *ngFor="let img of annonce.imageVideo; index as i">
         
@@ -75,9 +75,9 @@
                       <strong>Nombre de chambres:</strong>
                       <span>{{annonce.nbchambre}}</span>
                     </li>
-                    <li class="d-flex justify-content-between">
+                    <li class="d-flex justify-content-between" *ngIf="!Proprietaire">
                       <strong> Contacter l'annonceur: </strong>
-                      <div class="cal"><button  class="btn btn-primary" style="background-color:  #2eca6a ; border:#2eca6a ;"(click)="recupererCoordonees(annonce.id)"> Afficher coordonnées  </button></div>
+                      <div ><button id="cal"  class="btn btn-primary" (click)="recupererCoordonees(annonce.id)"> Coordonnées  </button></div>
                     </li>
                     <br>
 
@@ -131,7 +131,6 @@
    
   <section class="product" *ngIf="nbannoncesimilaires !=0" > 
 
-    
 
     <div  style="padding-left: 95px;">
       <div class="title-box-d">
@@ -141,7 +140,7 @@
     <button class="pre-btn"><img src="assets/img/fleche.png" alt=""></button>
     <button class="nxt-btn"><img src="assets/img/fleche.png" alt=""></button>
     <div class="product-container" >        
-         
+       
      
   <div class="product-card" *ngFor="let a of annonces" >
     <div class="product-image">

@@ -1,7 +1,8 @@
-<br><br>
+
+<div id="bg">
 <div class="container-fluid"> 
     <div class="title-box-d section-t4">
-        <h3 class="title-d">Update Property </h3>
+        <h3 class="title-d">Modifier annonce </h3>
       </div>
    
     
@@ -61,13 +62,14 @@
 
     <input type="file" #img accept="image/*" multiple hidden (change)="imageLoad($event)" 
     required >
-    <a class="btn-primary btn " class="btn btn-danger" (click)="img.click()" style="color: white; margin-bottom: 2%;" >Déposer image(s)</a>
+    <a class="btn-primary btn " class="btn btn-primary"   (click)="img.click()" style="color: white; margin-bottom: 2%;" >Déposer image(s)</a>
     
     <div class="modal-footer" >  
-        <button type="button" class="btn btn-danger" (click)="update()"> Update </button>
+        <button type="button" class="btn btn-danger" (click)="update()" id="RDV"> Modifer </button>
       </div>  
 
       
       
 
+</div>
 </div>
