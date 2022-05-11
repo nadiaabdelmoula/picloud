@@ -107,23 +107,28 @@
 
       <div class="col-md-4" *ngFor="let a of ListAnnonce;">
         <div class="card-box-a card-shadow">
+          
           <div class="img-box-a">
-            <img style="width: 100%; height: 100%;" src="https://leguearchitecture.com/wp-content/uploads/2020/02/a-etage-1.jpg">
+             <img style="width: 100%; height: 100%;" src="https://leguearchitecture.com/wp-content/uploads/2020/02/a-etage-1.jpg">
           </div>
           <div class="card-overlay">
+            
             <div class="card-overlay-a-content">
               <div class="card-header-a">
                 <h2 class="card-title-a">
                   {{ a.titre}}
-                </h2>     
+                </h2>
               </div>
               <div class="card-body-a">
                 <div class="price-box d-flex">
                   <span class="price-a"> {{ a.localisation}}</span>
+                  
                 </div>
-                <a href="#" class="link-a">Modfier annonce
+                <a [routerLink]="['/update', a.id]" class="link-a">Modfier annonce
                   <span class="ion-ios-arrow-forward"></span>
                 </a>
+                <div class="discount-tag"><button (click)="supprimerAnnonce(a.id)" style="background-color: rgba(255, 255, 255, 0);border: none;"> <i (click)="supprimerAnnonce(a.id)" style="color: white; font-size: 20px;" class="fa fa-trash" aria-hidden="true"></i></button> </div>
+           
               </div>
               <div class="card-footer-a">
                 <ul class="card-info d-flex justify-content-around">

@@ -11,7 +11,17 @@
 /*======================================
 //--//-->   STYLES GENERALES
 ======================================*/
+#RDV{
+  
+   color: #000000;
+   
+}
 
+#RDV:hover{
+color: #2eca6a;
+background-color: white;
+border-color: #2eca6a;
+}
 .dropbtn {
   background-color: #04AA6D;
   color: white;
