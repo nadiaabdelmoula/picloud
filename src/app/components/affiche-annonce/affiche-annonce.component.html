@@ -14,18 +14,18 @@
       </div>
     </div>
   </section>
-  <!--/ Intro Single End /-->
+  <!--
   
   <button type="button" class="btn btn-primary"(click)="create()"><i class="fa fa-plus" aria-hidden="true"></i> Add </button>
 
- 
+ -->
 
 
 
 
 
 
-<table class="table table-bordered">
+<table class="table table-bordered" style="margin-left: 24px;">
 <thead>
     <tr>
         <th>Id</th>
@@ -52,8 +52,8 @@
     <td>{{ annonce.surface }}</td>
     <td>{{ annonce.nbchambre }}</td>
     <td>
-        <button type="button" class="btn btn-success"(click)="update(annonce.id)"><i class="fa fa-edit"></i> Update </button>&nbsp;&nbsp;
-        <button type="button" class="btn btn-danger"  (click)="deleteRow(annonce.id)"><i class="fa fa-trash" aria-hidden="true"></i> Delete </button>
+       <!-- <button type="button" class="btn btn-success"(click)="update(annonce.id)"><i class="fa fa-edit"></i> Update </button>&nbsp;&nbsp;
+        --><button type="button" class="btn btn-danger"  (click)="deleteRow(annonce.id)"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer </button>
         
         
     </td>

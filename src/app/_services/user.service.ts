@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {User} from '../models/user';
 import { rdvs } from '../models/RDV';
@@ -18,7 +18,10 @@ const API_URL = 'http://localhost:8081/SpringMVC/api/test/';
   providedIn: 'root'
 })
 export class UserService {
-
+  headers = new HttpHeaders().set('Content-Type','application/json').set('Accept','application/json');
+  httpOptions = {
+    headers: this.headers
+  }
   
 private baseURL = "http://localhost:8081/SpringMVC/api/v1/users";
 private baseRDV ="http://localhost:8081/SpringMVC/api/v1/DeleteRDV"
@@ -26,6 +29,8 @@ private baseRDVUpdate ="http://localhost:8081/SpringMVC/api/v1/RDVs"
 private baseURLIMG = "http://localhost:8081/SpringMVC/api/v1/users/SetImage";
 private baseURLRDV="http://localhost:8081/SpringMVC/api/v1/RDVs"
 private baseURL7 = environment.api_url + "api/v1/usersFA";
+private baseURL2 ="http://localhost:8081/SpringMVC/api/v1/users";
+private baseURL3="http://localhost:8081/SpringMVC/api/v1/deleteUser"
   constructor(private http: HttpClient) { }
 
   getPublicContent(): Observable<any> {
@@ -77,6 +82,17 @@ private baseURL7 = environment.api_url + "api/v1/usersFA";
 
   getUserById(userid: number): Observable<User> {
     return this.http.get<User>('http://localhost:8081/SpringMVC/api/v1/usersid/' + userid);
+  }
+
+  getUserslist(){
+    return this.http.get<User[]>(`${this.baseURL2}`);
+  }
+
+  delete(id: number): Observable<User> {
+    console.log("ok");
+    
+    const url= `${this.baseURL3}/${id}`;
+    return this.http.delete<User>(url, this.httpOptions)
   }
 
 

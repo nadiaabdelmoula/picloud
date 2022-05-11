@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models/user';
 import { UserService } from '../_services/user.service';
 @Component({
   selector: 'app-board-admin',
@@ -7,15 +8,25 @@ import { UserService } from '../_services/user.service';
 })
 export class BoardAdminComponent implements OnInit {
   content?: string;
+  Users:User[];
   constructor(private userService: UserService) { }
   ngOnInit(): void {
-    this.userService.getAdminBoard().subscribe({
-      next: data => {
-        this.content = data;
-      },
-      error: err => {
-        this.content = "Acces interdit ! Page reservé uniquement au administrateur";
-      }
+    this.getUsers();
+  }
+
+  private getUsers(){
+    this.userService.getUserslist().subscribe(data => {
+      this.Users = data;
     });
   }
+  deleteRow(val: any){
+    console.log(val);
+    
+    if(this.userService.delete(val).subscribe(data => {
+      
+   
+    }))
+    window.location.reload();
+  
+}
 }

@@ -23,6 +23,7 @@ import { UpdateSujetComponent } from './sujet/update-sujet/update-sujet.componen
 import { ListSujetComponent } from './sujet/list-sujet/list-sujet.component';
 import { CreateSujetComponent } from './sujet/create-sujet/create-sujet.component';
 import { ShowSujetComponent } from './sujet/show-sujet/show-sujet.component';
+import { StatAnnonceComponent } from './components/stat-annonce/stat-annonce.component';
 
 
 
@@ -78,7 +79,17 @@ const routes: Routes = [
       {
         path: 'reclamations',
         component: AdminReclamationComponent
-      }
+      },{
+        path: 'affiche',
+        component:  AfficheAnnonceComponent
+      },{
+        path: 'update/:id',
+        component:  UpdateAnnonceComponent
+      },{
+        path: 'admin',
+        component:  BoardAdminComponent
+      },
+      { path: 'AnnonceStat', component: StatAnnonceComponent },
     ] },
 
 
