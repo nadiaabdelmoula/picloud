@@ -71,6 +71,8 @@ import { CoorndonneesComponent } from './components/coorndonnees/coorndonnees.co
 
 
 import { ShowReactionCommentaireComponent } from './reactionCommentaire/show-reaction-commentaire/show-reaction-commentaire.component';
+import { StatAnnonceComponent } from './components/stat-annonce/stat-annonce.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -125,6 +127,7 @@ import { ShowReactionCommentaireComponent } from './reactionCommentaire/show-rea
     ProfileComponent,
     BoardAdminComponent,
     ShowReactionCommentaireComponent,
+    StatAnnonceComponent,
 
 
   ],
@@ -150,8 +153,9 @@ import { ShowReactionCommentaireComponent } from './reactionCommentaire/show-rea
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
-    WebcamModule
+    MatListModule,
+    WebcamModule,
+    NgApexchartsModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

@@ -28,6 +28,10 @@ export class AnnonceService {
   private baseURL10 = environment.api_url +  "api/v1/FetchAnnonce";
   private baseURL11 = environment.api_url +  "api/v1/verifEtatCoupon";
   
+  private baseURL12 = environment.api_url +  "api/v1/AnnonceBooster";
+  
+  private baseURL13 = environment.api_url +  "api/v1/AnnonceNonBooster";
+  
 
 
   constructor(private httpClient: HttpClient) { }
@@ -106,6 +110,14 @@ export class AnnonceService {
   }
   CheckEtatCoupon(code:string){
     return this.httpClient.get<number>(`${this.baseURL11}/${code}`);
+
+  }
+  AnnonceBooster(){
+    return this.httpClient.get<number>(`${this.baseURL12}`);
+
+  }
+  AnnonceNonBooster(){
+    return this.httpClient.get<number>(`${this.baseURL13}`);
 
   }
 
